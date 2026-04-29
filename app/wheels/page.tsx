@@ -101,18 +101,18 @@ export default function WheelsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-24 bg-zinc-950">
+      <section className="py-10 sm:py-12 bg-zinc-950">
         <div className="container mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-4xl sm:text-5xl font-black text-white mb-6 uppercase tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 uppercase tracking-tight">
             Got Wheel Issues?
           </h2>
-          <p className="text-zinc-400 text-lg mb-8 max-w-xl mx-auto">
+          <p className="text-zinc-400 text-base mb-6 max-w-xl mx-auto">
             Send us a pic and we&apos;ll give you a free quote. Most refinishing jobs are done same day.
           </p>
           <Button
             asChild
             size="lg"
-            className="bg-lime-400 hover:bg-lime-300 text-black font-bold text-lg px-8 uppercase tracking-wide"
+            className="bg-lime-400 hover:bg-lime-300 text-black font-bold px-7 uppercase tracking-wide"
           >
             <Link href="/quote">Get Wheel Quote</Link>
           </Button>
