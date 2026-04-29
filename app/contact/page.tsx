@@ -199,7 +199,7 @@ export default function ContactPage() {
             <div>
               <div className="mb-4">
                 <Image
-                  src="/dynamic-paint-logo.png"
+                  src="/dynamic-paint-logo.jpeg"
                   alt="Dynamic Paint Logo"
                   width={100}
                   height={100}
