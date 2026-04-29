@@ -158,7 +158,7 @@ export default function ServicesPage() {
             <div>
               <div className="mb-4">
                 <Image
-                  src="/dynamic-paint-logo.jpeg"
+                  src="/dynamic-paint-logo-transparent.png"
                   alt="Dynamic Paint Logo"
                   width={100}
                   height={100}
