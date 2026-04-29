@@ -166,7 +166,7 @@ export default function CustomColorsPage() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="mb-4 md:mb-0">
               <Image
-                src="/dynamic-paint-logo.jpeg"
+                src="/dynamic-paint-logo-transparent.png"
                 alt="Dynamic Paint Logo"
                 width={500}
                 height={250}
