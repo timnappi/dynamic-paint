@@ -103,27 +103,27 @@ export default function Home() {
                 <div className="w-12 h-12 bg-lime-400/10 flex items-center justify-center group-hover:bg-lime-400/20 transition-colors">
                   <CheckCircle className="w-6 h-6 text-lime-400" />
                 </div>
-                <div className="text-4xl sm:text-5xl font-black text-white">2K+</div>
+                <div className="text-4xl sm:text-5xl font-black text-white">Premium</div>
               </div>
-              <p className="text-zinc-500 uppercase tracking-wide text-sm font-medium">Wheels Done</p>
+              <p className="text-zinc-500 uppercase tracking-wide text-sm font-medium">Show-Quality Finish</p>
             </div>
             <div className="text-center group">
               <div className="flex items-center justify-center gap-3 mb-2">
                 <div className="w-12 h-12 bg-lime-400/10 flex items-center justify-center group-hover:bg-lime-400/20 transition-colors">
                   <Zap className="w-6 h-6 text-lime-400" />
                 </div>
-                <div className="text-4xl sm:text-5xl font-black text-white">Fast</div>
+                <div className="text-4xl sm:text-5xl font-black text-white">Mobile</div>
               </div>
-              <p className="text-zinc-500 uppercase tracking-wide text-sm font-medium">Turnaround</p>
+              <p className="text-zinc-500 uppercase tracking-wide text-sm font-medium">Service Available</p>
             </div>
             <div className="text-center group">
               <div className="flex items-center justify-center gap-3 mb-2">
                 <div className="w-12 h-12 bg-lime-400/10 flex items-center justify-center group-hover:bg-lime-400/20 transition-colors">
                   <Users className="w-6 h-6 text-lime-400" />
                 </div>
-                <div className="text-4xl sm:text-5xl font-black text-white">5</div>
+                <div className="text-4xl sm:text-5xl font-black text-white">OEM+</div>
               </div>
-              <p className="text-zinc-500 uppercase tracking-wide text-sm font-medium">Star Reviews</p>
+              <p className="text-zinc-500 uppercase tracking-wide text-sm font-medium">Color Matching</p>
             </div>
           </div>
         </div>
