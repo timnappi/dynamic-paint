@@ -172,10 +172,12 @@ export default function AboutPage() {
             <div>
               <div className="mb-4">
                 <Image
-                  src="/dynamic-paint-logo.png"
+                  src="/dynamic-paint-logo.jpeg"
                   alt="Dynamic Paint Logo"
-                  width={100}
-                  height={100}
+                  width={580}
+                  height={371}
+                  className="h-20 w-auto object-contain"
+                  unoptimized
                 />
               </div>
               <p className="text-zinc-500 text-sm">
