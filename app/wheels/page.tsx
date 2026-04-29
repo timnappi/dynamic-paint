@@ -143,8 +143,8 @@ export default function WheelsPage() {
               <p className="text-zinc-500">Factory OEM color match for invisible repairs that blend perfectly.</p>
             </div>
             <div className="bg-zinc-950 border border-zinc-800 p-6 hover:border-lime-400/50 transition-colors">
-              <h3 className="text-xl font-bold text-white mb-3 uppercase">Custom Colors</h3>
-              <p className="text-zinc-500">Want something different? We paint wheels in any color you choose.</p>
+              <h3 className="text-xl font-bold text-white mb-3 uppercase">Polished Aluminum</h3>
+              <p className="text-zinc-500">Bring raw aluminum wheels back with a clean, bright polished finish.</p>
             </div>
             <div className="bg-zinc-950 border border-zinc-800 p-6 hover:border-lime-400/50 transition-colors">
               <h3 className="text-xl font-bold text-white mb-3 uppercase">Gloss Black Out</h3>
