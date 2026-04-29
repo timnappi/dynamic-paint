@@ -167,7 +167,7 @@ export default function Home() {
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex items-end">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent flex items-end">
                 <div className="p-4">
                   <span className="text-lime-400 text-xs font-bold uppercase tracking-widest">Custom</span>
                   <p className="text-white font-bold">Color Options</p>
