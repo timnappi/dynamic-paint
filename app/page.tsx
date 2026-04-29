@@ -366,11 +366,11 @@ export default function Home() {
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="mb-4">
                 <Image
-                  src="/dynamic-paint-logo.png"
+                  src="/dynamic-paint-logo.jpeg"
                   alt="Dynamic Paint Logo"
-                  width={500}
-                  height={250}
-                  className="h-48 w-auto"
+                  width={580}
+                  height={371}
+                  className="h-20 w-auto object-contain"
                   unoptimized
                 />
               </div>
