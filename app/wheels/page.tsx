@@ -28,26 +28,18 @@ export default function WheelsPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 sm:pb-24 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/wheel-repair-before-after.jpg"
-            alt="Wheel restoration"
-            fill
-            className="object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
-        </div>
-
-        <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">Wheel Specialists</span>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white mt-2 mb-6 uppercase tracking-tight">
-              Wheel Repairs & Restoration
-            </h1>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              From curb rash to custom colors. We bring your wheels back to life with expert craftsmanship and factory-matched precision.
-            </p>
+      <section className="relative pt-28 pb-10 sm:pt-32 sm:pb-14 overflow-hidden bg-black">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="relative mx-auto max-w-6xl overflow-hidden border border-zinc-800 shadow-2xl shadow-lime-400/10">
+            <Image
+              src="/wheel-repair-custom-color-header.png"
+              alt="Dynamic Paint wheel repair and custom color"
+              width={1216}
+              height={512}
+              className="w-full h-auto object-cover"
+              priority
+              unoptimized
+            />
           </div>
         </div>
       </section>
