@@ -28,15 +28,15 @@ export default function WheelsPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-28 pb-10 sm:pt-32 sm:pb-14 overflow-hidden bg-black">
+      <section className="relative pt-24 pb-8 sm:pt-28 sm:pb-12 overflow-hidden bg-black">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="relative mx-auto max-w-6xl overflow-hidden border border-zinc-800 shadow-2xl shadow-lime-400/10">
+          <div className="relative mx-auto max-w-6xl overflow-hidden border border-zinc-800 shadow-2xl shadow-lime-400/10 aspect-[1536/777]">
             <Image
               src="/wheel-repair-custom-color-header.png"
               alt="Dynamic Paint wheel repair and custom color"
-              width={1216}
-              height={512}
-              className="w-full h-auto object-cover"
+              fill
+              sizes="(min-width: 1280px) 1152px, calc(100vw - 32px)"
+              className="object-contain"
               priority
               unoptimized
             />
