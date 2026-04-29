@@ -189,20 +189,20 @@ export default function WheelsPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-zinc-950 border-t border-zinc-800 py-12">
+      <footer className="bg-black border-t border-zinc-800 py-8 sm:py-10">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 max-w-6xl mx-auto">
-            <div className="flex items-center gap-2">
+          <div className="max-w-6xl mx-auto">
+            <div className="relative overflow-hidden border border-zinc-900 bg-black aspect-[2048/404]">
               <Image
-                src="/dynamic-paint-logo-transparent.png"
-                alt="Dynamic Paint Logo"
-                width={400}
-                height={200}
-                className="h-12 w-auto"
+                src="/wheels-footer-banner.png"
+                alt="Dynamic Paint built on passion, driven by detail"
+                fill
+                sizes="(min-width: 1280px) 1152px, calc(100vw - 32px)"
+                className="object-contain"
                 unoptimized
               />
             </div>
-            <p className="text-zinc-600 text-sm">
+            <p className="text-zinc-600 text-sm text-center mt-6">
               &copy; {new Date().getFullYear()} Dynamic Paint. All rights reserved.
             </p>
           </div>
