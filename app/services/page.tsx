@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
-import { Palette, Wrench, Car, Sun, CircleDot, Truck, CheckCircle } from "lucide-react"
+import { Palette, Wrench, Car, Sun, CircleDot, Truck, CheckCircle, ArrowUpRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -10,6 +10,8 @@ export default function ServicesPage() {
     {
       icon: Palette,
       title: "Custom Wheel Colors",
+      href: "/custom-colors",
+      image: "/custom-wheel-colors.jpg",
       description: "Turn heads with bold, custom painted wheels. From neon accents to full color changes, we bring your vision to life.",
       features: [
         "Unlimited color options",
@@ -22,6 +24,8 @@ export default function ServicesPage() {
     {
       icon: Wrench,
       title: "Wheel Repairs",
+      href: "/wheels",
+      image: "/wheel-repair-before-after.jpg",
       description: "Curb rash, scratches, and scuffs? We restore your wheels to their former glory — or make them even better.",
       features: [
         "Curb rash repair",
@@ -34,6 +38,8 @@ export default function ServicesPage() {
     {
       icon: Car,
       title: "Auto Body Small Repairs",
+      href: "/body-repairs",
+      image: "/auto-body-paint-repair.jpg",
       description: "Minor body damage fixed fast. No need for expensive body shop visits for small issues.",
       features: [
         "Bumper scuffs and scratches",
@@ -46,6 +52,8 @@ export default function ServicesPage() {
     {
       icon: Sun,
       title: "Window Tinting",
+      href: "/quote?service=window-tinting",
+      image: "/window-tinting-service.jpg",
       description: "Premium window tint for style, privacy, and protection. Multiple shade levels to match your vibe.",
       features: [
         "Multiple tint percentages available",
@@ -58,6 +66,8 @@ export default function ServicesPage() {
     {
       icon: CircleDot,
       title: "Paintless Dent Repair",
+      href: "/quote?service=paintless-dent-repair",
+      image: "/paintless-dent-repair.jpg",
       description: "Remove dents and dings without affecting your factory paint. The smart way to fix hail damage and door dings.",
       features: [
         "No repainting required",
@@ -70,6 +80,8 @@ export default function ServicesPage() {
     {
       icon: Truck,
       title: "Mobile Services",
+      href: "/quote?service=mobile",
+      image: "/mobile-wheel-repair.jpg",
       description: "Can&apos;t come to us? We come to you. Mobile wheel and bumper repair at your convenience.",
       features: [
         "On-site wheel repairs",
@@ -109,30 +121,47 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => (
-              <Card key={index} className="bg-zinc-950 border-zinc-800 overflow-hidden hover:border-lime-400/30 transition-colors">
-                <CardContent className="p-0">
-                  <div className="grid md:grid-cols-3 gap-6 p-8">
-                    <div className="md:col-span-1">
-                      <div className="bg-lime-400/10 w-16 h-16 flex items-center justify-center mb-4">
-                        <service.icon className="w-8 h-8 text-lime-400" />
+              <Link key={index} href={service.href} className="group block">
+                <Card className="bg-zinc-950 border-zinc-800 overflow-hidden transition-all duration-300 group-hover:border-lime-400/60 group-hover:bg-zinc-900">
+                  <CardContent className="p-0">
+                    <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1fr_1.05fr_240px] lg:items-stretch">
+                      <div>
+                        <div className="bg-lime-400/10 w-16 h-16 flex items-center justify-center mb-4 transition-colors group-hover:bg-lime-400/20">
+                          <service.icon className="w-8 h-8 text-lime-400" />
+                        </div>
+                        <div className="flex items-start justify-between gap-4">
+                          <h3 className="text-2xl font-black text-white mb-3 uppercase tracking-tight">{service.title}</h3>
+                          <ArrowUpRight className="w-6 h-6 text-lime-400 opacity-70 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        </div>
+                        <p className="text-zinc-500 transition-colors group-hover:text-zinc-400">{service.description}</p>
                       </div>
-                      <h3 className="text-2xl font-black text-white mb-3 uppercase tracking-tight">{service.title}</h3>
-                      <p className="text-zinc-500">{service.description}</p>
+
+                      <div>
+                        <h4 className="text-sm font-bold text-zinc-400 mb-4 uppercase tracking-wide">What&apos;s Included:</h4>
+                        <ul className="space-y-3">
+                          {service.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-start gap-3">
+                              <CheckCircle className="w-5 h-5 text-lime-400 flex-shrink-0 mt-0.5" />
+                              <span className="text-zinc-300">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="relative min-h-48 overflow-hidden border border-zinc-800 bg-black">
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          fill
+                          sizes="(min-width: 1024px) 240px, calc(100vw - 64px)"
+                          className="object-cover opacity-80 transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+                      </div>
                     </div>
-                    <div className="md:col-span-2">
-                      <h4 className="text-sm font-bold text-zinc-400 mb-4 uppercase tracking-wide">What&apos;s Included:</h4>
-                      <ul className="space-y-3">
-                        {service.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-lime-400 flex-shrink-0 mt-0.5" />
-                            <span className="text-zinc-300">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
