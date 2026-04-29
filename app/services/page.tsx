@@ -1,0 +1,220 @@
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Navigation } from "@/components/navigation"
+import { Palette, Wrench, Car, Sun, CircleDot, Truck, CheckCircle } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+
+export default function ServicesPage() {
+  const services = [
+    {
+      icon: Palette,
+      title: "Custom Wheel Colors",
+      description: "Turn heads with bold, custom painted wheels. From neon accents to full color changes, we bring your vision to life.",
+      features: [
+        "Unlimited color options",
+        "Matte, gloss, metallic & candy finishes",
+        "Professional prep and clear coat",
+        "Color matching available",
+        "Durable, long-lasting results",
+      ],
+    },
+    {
+      icon: Wrench,
+      title: "Wheel Repairs",
+      description: "Curb rash, scratches, and scuffs? We restore your wheels to their former glory — or make them even better.",
+      features: [
+        "Curb rash repair",
+        "Scratch and scuff removal",
+        "Bent wheel straightening",
+        "Crack repair",
+        "OEM finish restoration",
+      ],
+    },
+    {
+      icon: Car,
+      title: "Auto Body Small Repairs",
+      description: "Minor body damage fixed fast. No need for expensive body shop visits for small issues.",
+      features: [
+        "Bumper scuffs and scratches",
+        "Minor paint touch-ups",
+        "Plastic trim restoration",
+        "Fender repairs",
+        "Quick turnaround times",
+      ],
+    },
+    {
+      icon: Sun,
+      title: "Window Tinting",
+      description: "Premium window tint for style, privacy, and protection. Multiple shade levels to match your vibe.",
+      features: [
+        "Multiple tint percentages available",
+        "UV protection",
+        "Heat rejection technology",
+        "Lifetime warranty options",
+        "Legal compliance guidance",
+      ],
+    },
+    {
+      icon: CircleDot,
+      title: "Paintless Dent Repair",
+      description: "Remove dents and dings without affecting your factory paint. The smart way to fix hail damage and door dings.",
+      features: [
+        "No repainting required",
+        "Preserves original finish",
+        "Same-day service available",
+        "Hail damage specialists",
+        "Cost-effective solution",
+      ],
+    },
+    {
+      icon: Truck,
+      title: "Mobile Services",
+      description: "Can&apos;t come to us? We come to you. Mobile wheel and bumper repair at your convenience.",
+      features: [
+        "On-site wheel repairs",
+        "Mobile bumper touch-ups",
+        "Flexible scheduling",
+        "Service at home or work",
+        "Same quality as in-shop",
+      ],
+    },
+  ]
+
+  return (
+    <div className="min-h-screen bg-black">
+      <Navigation />
+
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/hero-custom-wheels-street-style.jpg"
+            alt="Services"
+            fill
+            className="object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">What We Offer</span>
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 text-balance uppercase tracking-tight mt-2">Our Services</h1>
+          <p className="text-xl text-zinc-400 max-w-3xl mx-auto text-balance">
+            From custom wheel paint jobs to factory-fresh restoration. Whatever your ride needs, we got you covered.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-20 bg-black">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 gap-8 max-w-6xl mx-auto">
+            {services.map((service, index) => (
+              <Card key={index} className="bg-zinc-950 border-zinc-800 overflow-hidden hover:border-lime-400/30 transition-colors">
+                <CardContent className="p-0">
+                  <div className="grid md:grid-cols-3 gap-6 p-8">
+                    <div className="md:col-span-1">
+                      <div className="bg-lime-400/10 w-16 h-16 flex items-center justify-center mb-4">
+                        <service.icon className="w-8 h-8 text-lime-400" />
+                      </div>
+                      <h3 className="text-2xl font-black text-white mb-3 uppercase tracking-tight">{service.title}</h3>
+                      <p className="text-zinc-500">{service.description}</p>
+                    </div>
+                    <div className="md:col-span-2">
+                      <h4 className="text-sm font-bold text-zinc-400 mb-4 uppercase tracking-wide">What&apos;s Included:</h4>
+                      <ul className="space-y-3">
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <CheckCircle className="w-5 h-5 text-lime-400 flex-shrink-0 mt-0.5" />
+                            <span className="text-zinc-300">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-zinc-950">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 text-balance uppercase tracking-tight">
+            Ready to transform your ride?
+          </h2>
+          <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+            Get a free quote and let&apos;s make it happen.
+          </p>
+          <Button asChild size="lg" className="bg-lime-400 hover:bg-lime-300 text-black font-bold text-lg px-8 uppercase tracking-wide">
+            <Link href="/quote">Get Your Quote</Link>
+          </Button>
+        </div>
+      </section>
+
+      <footer className="bg-zinc-950 border-t border-zinc-800 py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div>
+              <div className="mb-4">
+                <Image
+                  src="/dynamic-paint-logo.png"
+                  alt="Dynamic Paint Logo"
+                  width={100}
+                  height={100}
+                />
+              </div>
+              <p className="text-zinc-500 text-sm">
+                Your one-stop shop for automotive reconditioning. Custom style or factory fresh — we make it happen.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-white font-bold uppercase tracking-wide mb-4">Navigation</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/services" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/gallery" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
+                    Gallery
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-bold uppercase tracking-wide mb-4">Contact</h4>
+              <div className="space-y-2 text-zinc-500 text-sm">
+                <p>
+                  <a href="mailto:info@dynamicpaint.com" className="hover:text-lime-400 transition-colors">
+                    info@dynamicpaint.com
+                  </a>
+                </p>
+                <p className="text-zinc-600">
+                  Mobile services available
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-zinc-800 mt-8 pt-8 text-center text-xs text-zinc-600">
+            <p>&copy; {new Date().getFullYear()} Dynamic Paint. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
