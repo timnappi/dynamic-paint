@@ -366,7 +366,7 @@ export default function Home() {
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="mb-4">
                 <Image
-                  src="/dynamic-paint-logo.jpeg"
+                  src="/dynamic-paint-logo-transparent.png"
                   alt="Dynamic Paint Logo"
                   width={580}
                   height={371}
