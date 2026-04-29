@@ -194,7 +194,7 @@ export default function WheelsPage() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 max-w-6xl mx-auto">
             <div className="flex items-center gap-2">
               <Image
-                src="/dynamic-paint-logo.jpeg"
+                src="/dynamic-paint-logo-transparent.png"
                 alt="Dynamic Paint Logo"
                 width={400}
                 height={200}
