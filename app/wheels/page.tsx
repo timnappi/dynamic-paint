@@ -100,6 +100,25 @@ export default function WheelsPage() {
         </div>
       </section>
 
+      {/* CTA */}
+      <section className="py-16 sm:py-24 bg-zinc-950">
+        <div className="container mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-4xl sm:text-5xl font-black text-white mb-6 uppercase tracking-tight">
+            Got Wheel Damage?
+          </h2>
+          <p className="text-zinc-400 text-lg mb-8 max-w-xl mx-auto">
+            Send us a pic and we&apos;ll give you a free quote. Most repairs done same day.
+          </p>
+          <Button
+            asChild
+            size="lg"
+            className="bg-lime-400 hover:bg-lime-300 text-black font-bold text-lg px-8 uppercase tracking-wide"
+          >
+            <Link href="/quote">Get Wheel Quote</Link>
+          </Button>
+        </div>
+      </section>
+
       {/* Services Offered */}
       <section className="py-16 sm:py-24 bg-black">
         <div className="container mx-auto px-4 sm:px-6">
@@ -136,25 +155,6 @@ export default function WheelsPage() {
               <p className="text-zinc-500">Peeling or faded clear coat? We strip and reapply for lasting shine.</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 sm:py-24 bg-zinc-950">
-        <div className="container mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-4xl sm:text-5xl font-black text-white mb-6 uppercase tracking-tight">
-            Got Wheel Damage?
-          </h2>
-          <p className="text-zinc-400 text-lg mb-8 max-w-xl mx-auto">
-            Send us a pic and we&apos;ll give you a free quote. Most repairs done same day.
-          </p>
-          <Button
-            asChild
-            size="lg"
-            className="bg-lime-400 hover:bg-lime-300 text-black font-bold text-lg px-8 uppercase tracking-wide"
-          >
-            <Link href="/quote">Get Wheel Quote</Link>
-          </Button>
         </div>
       </section>
 
