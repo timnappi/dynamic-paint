@@ -189,18 +189,40 @@ export default function WheelsPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black border-t border-zinc-800 py-8 sm:py-10">
+      <footer className="bg-zinc-950 border-t border-zinc-800 py-12 sm:py-16">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="relative overflow-hidden border border-zinc-900 bg-black aspect-[2048/404]">
+            <div className="relative overflow-hidden border border-zinc-800 bg-black min-h-[320px] sm:min-h-[280px]">
               <Image
                 src="/wheels-footer-banner.png"
-                alt="Dynamic Paint built on passion, driven by detail"
+                alt=""
                 fill
                 sizes="(min-width: 1280px) 1152px, calc(100vw - 32px)"
-                className="object-contain"
+                className="object-cover object-right opacity-55"
                 unoptimized
               />
+              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/35" />
+              <div className="relative z-10 grid gap-8 p-6 sm:p-8 md:grid-cols-[240px_1fr] md:items-center">
+                <Image
+                  src="/dynamic-paint-logo-transparent.png"
+                  alt="Dynamic Paint Logo"
+                  width={541}
+                  height={235}
+                  className="w-56 max-w-full object-contain"
+                  unoptimized
+                />
+                <div className="max-w-xl border-l border-lime-400/70 pl-6">
+                  <p className="text-2xl sm:text-3xl font-black uppercase tracking-[0.18em] text-white">
+                    Built on passion.
+                  </p>
+                  <p className="text-xl sm:text-2xl font-black uppercase tracking-[0.18em] text-white">
+                    <span className="text-lime-400">Driven</span> by detail.
+                  </p>
+                  <p className="mt-5 max-w-md text-sm sm:text-base leading-7 text-zinc-300">
+                    At Dynamic Paint, we don&apos;t just change wheels. We transform them. Every detail matters, and every finish reflects our standard.
+                  </p>
+                </div>
+              </div>
             </div>
             <p className="text-zinc-600 text-sm text-center mt-6">
               &copy; {new Date().getFullYear()} Dynamic Paint. All rights reserved.
