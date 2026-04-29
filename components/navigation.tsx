@@ -33,7 +33,7 @@ export function Navigation() {
           <Link href="/" className="flex items-center gap-2 group relative">
             <div className="absolute inset-0 bg-lime-400/10 blur-lg group-hover:bg-lime-400/20 transition-all duration-300" />
             <Image
-              src="/dynamic-paint-logo.jpeg"
+              src="/dynamic-paint-logo-transparent.png"
               alt="Dynamic Paint Logo"
               width={580}
               height={371}
