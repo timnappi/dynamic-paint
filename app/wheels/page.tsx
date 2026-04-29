@@ -63,10 +63,10 @@ export default function WheelsPage() {
                   How We Do It
                 </h2>
                 <p className="text-zinc-400 text-lg mb-6">
-                  Curb rash, scratches, and scuffs happen to everyone. But that doesn&apos;t mean you have to live with damaged wheels. Our wheel restoration process brings your rims back to factory-new condition — or better.
+                  Curb rash, scratches, and scuffs happen to everyone. But that doesn&apos;t mean you have to live with marked-up wheels. Our wheel restoration process brings your rims back to factory-new condition — or better.
                 </p>
                 <p className="text-zinc-400 text-lg mb-8">
-                  We start by stripping the damaged area, filling any gouges or chips, then sanding everything smooth. After that, we apply primer, base coat matched to your exact OEM color, and finish with a durable clear coat. The result? A seamless repair that&apos;s invisible to the eye.
+                  We start by cleaning, stripping, and sanding the affected area smooth. After that, we apply primer, base coat matched to your exact OEM color, and finish with a durable clear coat. The result? A clean refinish that blends with the wheel.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3 text-zinc-300">
@@ -75,7 +75,7 @@ export default function WheelsPage() {
                   </li>
                   <li className="flex items-start gap-3 text-zinc-300">
                     <CheckCircle className="w-5 h-5 text-lime-400 mt-1 flex-shrink-0" />
-                    <span><strong className="text-white">Fill & Sand</strong> — Fill gouges and sand smooth for a flawless base</span>
+                    <span><strong className="text-white">Sand & Smooth</strong> — Refine the surface for a clean, even base</span>
                   </li>
                   <li className="flex items-start gap-3 text-zinc-300">
                     <CheckCircle className="w-5 h-5 text-lime-400 mt-1 flex-shrink-0" />
@@ -104,10 +104,10 @@ export default function WheelsPage() {
       <section className="py-16 sm:py-24 bg-zinc-950">
         <div className="container mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-6 uppercase tracking-tight">
-            Got Wheel Damage?
+            Got Wheel Issues?
           </h2>
           <p className="text-zinc-400 text-lg mb-8 max-w-xl mx-auto">
-            Send us a pic and we&apos;ll give you a free quote. Most repairs done same day.
+            Send us a pic and we&apos;ll give you a free quote. Most refinishing jobs are done same day.
           </p>
           <Button
             asChild
@@ -132,7 +132,7 @@ export default function WheelsPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <div className="bg-zinc-950 border border-zinc-800 p-6 hover:border-lime-400/50 transition-colors">
               <h3 className="text-xl font-bold text-white mb-3 uppercase">Curb Rash Repair</h3>
-              <p className="text-zinc-500">Scraped your wheel on a curb? We fill, sand, and repaint for a seamless fix.</p>
+              <p className="text-zinc-500">Scraped your wheel on a curb? We sand, prep, and refinish for a clean result.</p>
             </div>
             <div className="bg-zinc-950 border border-zinc-800 p-6 hover:border-lime-400/50 transition-colors">
               <h3 className="text-xl font-bold text-white mb-3 uppercase">Scratch Removal</h3>
