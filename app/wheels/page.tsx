@@ -42,7 +42,7 @@ export default function WheelsPage() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">Wheel Specialists</span>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white mt-2 mb-6 uppercase tracking-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white mt-2 mb-6 uppercase tracking-normal leading-[0.95]">
               Wheel Repairs & Restoration
             </h1>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
