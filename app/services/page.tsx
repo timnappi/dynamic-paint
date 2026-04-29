@@ -12,10 +12,12 @@ export default function ServicesPage() {
       title: "Custom Wheel Colors",
       href: "/custom-colors",
       image: "/custom-wheel-colors.jpg",
-      description: "Bold custom painted wheels, from subtle accents to full color changes.",
+      description: "Turn heads with bold, custom painted wheels. From neon accents to full color changes, we bring your vision to life.",
       features: [
         "Unlimited color options",
         "Matte, gloss, metallic & candy finishes",
+        "Professional prep and clear coat",
+        "Color matching available",
         "Durable, long-lasting results",
       ],
     },
@@ -24,10 +26,12 @@ export default function ServicesPage() {
       title: "Wheel Repairs",
       href: "/wheels",
       image: "/wheel-repair-before-after.jpg",
-      description: "Curb rash, scratches, and scuffs refinished with a clean factory-style result.",
+      description: "Curb rash, scratches, and scuffs? We restore your wheels to their former glory — or make them even better.",
       features: [
         "Curb rash repair",
         "Scratch and scuff removal",
+        "Bent wheel straightening",
+        "Crack repair",
         "OEM finish restoration",
       ],
     },
@@ -36,10 +40,12 @@ export default function ServicesPage() {
       title: "Auto Body Small Repairs",
       href: "/body-repairs",
       image: "/auto-body-paint-repair.jpg",
-      description: "Fast fixes for smaller body and bumper issues without the body shop hassle.",
+      description: "Minor body damage fixed fast. No need for expensive body shop visits for small issues.",
       features: [
         "Bumper scuffs and scratches",
         "Minor paint touch-ups",
+        "Plastic trim restoration",
+        "Fender repairs",
         "Quick turnaround times",
       ],
     },
@@ -48,11 +54,13 @@ export default function ServicesPage() {
       title: "Window Tinting",
       href: "/quote?service=window-tinting",
       image: "/window-tinting-service.jpg",
-      description: "Clean tint installs for style, privacy, heat rejection, and UV protection.",
+      description: "Premium window tint for style, privacy, and protection. Multiple shade levels to match your vibe.",
       features: [
-        "Multiple tint percentages",
+        "Multiple tint percentages available",
         "UV protection",
         "Heat rejection technology",
+        "Lifetime warranty options",
+        "Legal compliance guidance",
       ],
     },
     {
@@ -60,10 +68,12 @@ export default function ServicesPage() {
       title: "Paintless Dent Repair",
       href: "/quote?service=paintless-dent-repair",
       image: "/paintless-dent-repair.jpg",
-      description: "Remove dents and dings while preserving the original factory finish.",
+      description: "Remove dents and dings without affecting your factory paint. The smart way to fix hail damage and door dings.",
       features: [
         "No repainting required",
         "Preserves original finish",
+        "Same-day service available",
+        "Hail damage specialists",
         "Cost-effective solution",
       ],
     },
@@ -72,10 +82,12 @@ export default function ServicesPage() {
       title: "Mobile Services",
       href: "/quote?service=mobile",
       image: "/mobile-wheel-repair.jpg",
-      description: "Mobile wheel and bumper repair at your home, job, or wherever the car is.",
+      description: "Can&apos;t come to us? We come to you. Mobile wheel and bumper repair at your convenience.",
       features: [
         "On-site wheel repairs",
         "Mobile bumper touch-ups",
+        "Flexible scheduling",
+        "Service at home or work",
         "Same quality as in-shop",
       ],
     },
@@ -105,43 +117,43 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 bg-black">
+      <section className="py-20 bg-black">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 gap-4 sm:gap-5 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => (
               <Link key={index} href={service.href} className="group block">
                 <Card className="bg-zinc-950 border-zinc-800 overflow-hidden transition-all duration-300 group-hover:border-lime-400/60 group-hover:bg-zinc-900">
                   <CardContent className="p-0">
-                    <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-[1fr_1fr_200px] lg:items-stretch">
+                    <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1fr_1.05fr_240px] lg:items-stretch">
                       <div>
-                        <div className="bg-lime-400/10 w-12 h-12 flex items-center justify-center mb-3 transition-colors group-hover:bg-lime-400/20">
-                          <service.icon className="w-6 h-6 text-lime-400" />
+                        <div className="bg-lime-400/10 w-16 h-16 flex items-center justify-center mb-4 transition-colors group-hover:bg-lime-400/20">
+                          <service.icon className="w-8 h-8 text-lime-400" />
                         </div>
                         <div className="flex items-start justify-between gap-4">
-                          <h3 className="text-xl sm:text-2xl font-black text-white mb-2 uppercase tracking-tight">{service.title}</h3>
-                          <ArrowUpRight className="w-5 h-5 text-lime-400 opacity-70 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                          <h3 className="text-2xl font-black text-white mb-3 uppercase tracking-tight">{service.title}</h3>
+                          <ArrowUpRight className="w-6 h-6 text-lime-400 opacity-70 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                         </div>
-                        <p className="text-sm sm:text-base text-zinc-500 transition-colors group-hover:text-zinc-400">{service.description}</p>
+                        <p className="text-zinc-500 transition-colors group-hover:text-zinc-400">{service.description}</p>
                       </div>
 
                       <div>
-                        <h4 className="text-xs font-bold text-zinc-400 mb-3 uppercase tracking-wide">What&apos;s Included:</h4>
-                        <ul className="space-y-2">
+                        <h4 className="text-sm font-bold text-zinc-400 mb-4 uppercase tracking-wide">What&apos;s Included:</h4>
+                        <ul className="space-y-3">
                           {service.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-start gap-2.5">
-                              <CheckCircle className="w-4 h-4 text-lime-400 flex-shrink-0 mt-0.5" />
-                              <span className="text-sm text-zinc-300">{feature}</span>
+                            <li key={idx} className="flex items-start gap-3">
+                              <CheckCircle className="w-5 h-5 text-lime-400 flex-shrink-0 mt-0.5" />
+                              <span className="text-zinc-300">{feature}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="relative min-h-36 sm:min-h-40 overflow-hidden border border-zinc-800 bg-black">
+                      <div className="relative min-h-48 overflow-hidden border border-zinc-800 bg-black">
                         <Image
                           src={service.image}
                           alt={service.title}
                           fill
-                          sizes="(min-width: 1024px) 200px, calc(100vw - 40px)"
+                          sizes="(min-width: 1024px) 240px, calc(100vw - 64px)"
                           className="object-cover opacity-80 transition-transform duration-500 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
@@ -155,7 +167,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-zinc-950">
+      <section className="py-20 bg-zinc-950">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 text-balance uppercase tracking-tight">
             Ready to transform your ride?
@@ -182,7 +194,7 @@ export default function ServicesPage() {
                 />
               </div>
               <p className="text-zinc-500 text-sm">
-                Your one-stop shop for automotive reconditioning. Custom style or factory fresh - we make it happen.
+                Your one-stop shop for automotive reconditioning. Custom style or factory fresh — we make it happen.
               </p>
             </div>
 
