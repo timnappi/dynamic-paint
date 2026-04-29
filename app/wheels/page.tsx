@@ -96,6 +96,16 @@ export default function WheelsPage() {
                 />
               </div>
             </div>
+            <div className="mt-12 overflow-hidden border border-zinc-800 bg-black shadow-2xl shadow-lime-400/5">
+              <Image
+                src="/wheel-services-overview.png"
+                alt="Dynamic Paint wheel services overview"
+                width={1792}
+                height={1024}
+                className="w-full h-auto object-cover"
+                unoptimized
+              />
+            </div>
           </div>
         </div>
       </section>
