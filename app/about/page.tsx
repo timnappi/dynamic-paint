@@ -172,7 +172,7 @@ export default function AboutPage() {
             <div>
               <div className="mb-4">
                 <Image
-                  src="/dynamic-paint-logo.jpeg"
+                  src="/dynamic-paint-logo-transparent.png"
                   alt="Dynamic Paint Logo"
                   width={580}
                   height={371}
