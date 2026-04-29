@@ -42,8 +42,8 @@ export default function WheelsPage() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">Wheel Specialists</span>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white mt-2 mb-6 uppercase tracking-normal leading-[0.95]">
-              Wheel Repairs & Restoration
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mt-3 mb-6 text-balance uppercase tracking-tight leading-none drop-shadow-[0_4px_18px_rgba(0,0,0,0.85)]">
+              Wheel Repairs <span className="text-lime-400">&amp;</span> Restoration
             </h1>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
               From curb rash to custom colors. We bring your wheels back to life with expert craftsmanship and factory-matched precision.
