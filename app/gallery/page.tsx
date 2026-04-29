@@ -263,7 +263,7 @@ export default function GalleryPage() {
             <div>
               <div className="mb-4">
                 <Image
-                  src="/dynamic-paint-logo.png"
+                  src="/dynamic-paint-logo.jpeg"
                   alt="Dynamic Paint Logo"
                   width={200}
                   height={200}
