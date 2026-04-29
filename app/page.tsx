@@ -46,14 +46,14 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/hero-custom-wheels-street-style.jpg"
-            alt="Custom wheels street style"
+            src="/high-end-luxury-car-wheel-close-up-dark-automotive.jpg"
+            alt="Dark custom wheel detail"
             fill
-            className="object-cover opacity-50"
+            className="object-cover object-center opacity-35"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-black/90 to-lime-950/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-black/90 to-lime-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/20" />
           
         </div>
 
