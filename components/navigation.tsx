@@ -31,13 +31,13 @@ export function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2 group relative">
-            <div className="absolute inset-0 bg-lime-400/10 rounded-full blur-lg group-hover:bg-lime-400/20 transition-all duration-300" />
+            <div className="absolute inset-0 bg-lime-400/10 blur-lg group-hover:bg-lime-400/20 transition-all duration-300" />
             <Image
-              src="/dynamic-paint-logo.png"
+              src="/dynamic-paint-logo.jpeg"
               alt="Dynamic Paint Logo"
-              width={600}
-              height={600}
-              className="group-hover:scale-105 transition-transform h-20 md:h-24 w-auto drop-shadow-lg group-hover:drop-shadow-xl group-hover:drop-shadow-[0_0_20px_rgba(172,255,76,0.4)]"
+              width={580}
+              height={371}
+              className="group-hover:scale-105 transition-transform h-14 md:h-16 w-auto object-contain drop-shadow-lg group-hover:drop-shadow-xl group-hover:drop-shadow-[0_0_20px_rgba(172,255,76,0.4)]"
               priority
               unoptimized
             />
