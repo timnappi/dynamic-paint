@@ -43,10 +43,10 @@ export default function ContactPage() {
                     <div>
                       <h3 className="text-lg font-bold text-white mb-2 uppercase tracking-tight">Email</h3>
                       <a
-                        href="mailto:info@dynamicpaint.com"
+                        href="mailto:dynamicpaintnj@gmail.com"
                         className="text-zinc-400 hover:text-lime-400 transition-colors"
                       >
-                        info@dynamicpaint.com
+                        dynamicpaintnj@gmail.com
                       </a>
                       <p className="text-zinc-600 text-sm mt-1">We respond within 24 hours</p>
                     </div>
@@ -240,8 +240,8 @@ export default function ContactPage() {
               <h4 className="text-white font-bold uppercase tracking-wide mb-4">Contact</h4>
               <div className="space-y-2 text-zinc-500 text-sm">
                 <p>
-                  <a href="mailto:info@dynamicpaint.com" className="hover:text-lime-400 transition-colors">
-                    info@dynamicpaint.com
+                  <a href="mailto:dynamicpaintnj@gmail.com" className="hover:text-lime-400 transition-colors">
+                    dynamicpaintnj@gmail.com
                   </a>
                 </p>
                 <p className="text-zinc-600">
@@ -259,3 +259,4 @@ export default function ContactPage() {
     </div>
   )
 }
+
