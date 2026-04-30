@@ -52,8 +52,15 @@ export default function Home() {
             className="object-cover object-center opacity-35"
             priority
           />
+          <Image
+            src="/custom-wheel-colors.jpg"
+            alt=""
+            fill
+            className="object-cover object-right opacity-15 mix-blend-screen saturate-75"
+            priority
+          />
           <div className="absolute inset-0 bg-gradient-to-br from-black via-black/90 to-lime-950/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/25" />
           
         </div>
 
