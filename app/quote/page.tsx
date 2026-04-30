@@ -18,45 +18,12 @@ import Image from "next/image"
 export default function QuotePage() {
   const [showOtherService, setShowOtherService] = useState(false)
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
-  const [statusMessage, setStatusMessage] = useState("")
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const filesArray = Array.from(e.target.files).slice(0, 5)
       setSelectedFiles(filesArray)
     }
-  }
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    const formData = new FormData(e.currentTarget)
-    const services = formData.getAll("services").filter(Boolean).join(", ") || "Not selected"
-    const photoNames = selectedFiles.map((file) => file.name).join(", ") || "No files selected"
-
-    const emailBody = [
-      "New quote request from Dynamic Paint website:",
-      "",
-      `Name: ${formData.get("name") || ""}`,
-      `Email: ${formData.get("email") || ""}`,
-      `Phone: ${formData.get("phone") || ""}`,
-      `Services: ${services}`,
-      `Other Service: ${formData.get("otherService") || ""}`,
-      `Vehicle: ${formData.get("vehicle") || ""}`,
-      `Number of Wheels: ${formData.get("wheelCount") || ""}`,
-      `Wheel Size: ${formData.get("wheelSize") || ""}`,
-      `Photos Selected: ${photoNames}`,
-      "",
-      "Details:",
-      `${formData.get("description") || ""}`,
-      "",
-      "Note: The website can list selected photo names here. Attach the photos to this email before sending."
-    ].join("\n")
-
-    const subject = encodeURIComponent(`Dynamic Paint Quote Request - ${formData.get("name") || "New Lead"}`)
-    const body = encodeURIComponent(emailBody)
-    window.location.href = `mailto:dynamicpaintnj@gmail.com?subject=${subject}&body=${body}`
-    setStatusMessage("Your email app should open with the quote details filled in. Attach your photos there before sending.")
   }
 
   return (
@@ -75,7 +42,16 @@ export default function QuotePage() {
 
           <Card className="bg-zinc-950 border-zinc-800">
             <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form
+                action="https://formsubmit.co/dynamicpaintnj@gmail.com"
+                method="POST"
+                encType="multipart/form-data"
+                className="space-y-8"
+              >
+                <input type="hidden" name="_subject" value="New Dynamic Paint Quote Request" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
                 <div className="space-y-4">
                   <h2 className="text-xl font-black text-white uppercase tracking-tight">Your Info</h2>
 
@@ -167,6 +143,8 @@ export default function QuotePage() {
                       <div className="flex items-center space-x-3">
                         <Checkbox 
                           id="other" 
+                          name="services"
+                          value="Other"
                           className="border-zinc-700 data-[state=checked]:bg-lime-400 data-[state=checked]:border-lime-400"
                           onCheckedChange={(checked) => setShowOtherService(checked as boolean)} 
                         />
@@ -264,6 +242,7 @@ export default function QuotePage() {
                         </div>
                         <input
                           id="photos"
+                          name="attachment"
                           type="file"
                           className="hidden"
                           multiple
@@ -305,11 +284,9 @@ export default function QuotePage() {
                 <Button type="submit" className="w-full bg-lime-400 hover:bg-lime-300 text-black font-bold text-lg py-6 uppercase tracking-wide">
                   Send Quote Request
                 </Button>
-                {statusMessage && (
-                  <p className="text-sm text-lime-400 text-center">
-                    {statusMessage}
-                  </p>
-                )}
+                <p className="text-xs text-zinc-500 text-center">
+                  Quote requests are sent directly to dynamicpaintnj@gmail.com. If photos are attached, total upload size must stay under 10MB.
+                </p>
               </form>
             </CardContent>
           </Card>
