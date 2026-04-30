@@ -47,7 +47,7 @@ export default function BodyRepairsPage() {
     { src: "/gallery/red-bumper-paint.jpg" },
     { src: "/gallery/camaro-bumper-paint.jpg" },
     { src: "/body-repair-red-camaro.png" },
-    { src: "/camaro-after.jpg" },
+    { src: "/body-repair-red-camaro-before.png" },
   ]
 
   return (
