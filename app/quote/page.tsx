@@ -55,7 +55,7 @@ export default function QuotePage() {
 
     const subject = encodeURIComponent(`Dynamic Paint Quote Request - ${formData.get("name") || "New Lead"}`)
     const body = encodeURIComponent(emailBody)
-    window.location.href = `mailto:info@dynamicpaint.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:dynamicpaintnj@gmail.com?subject=${subject}&body=${body}`
     setStatusMessage("Your email app should open with the quote details filled in. Attach your photos there before sending.")
   }
 
@@ -363,8 +363,8 @@ export default function QuotePage() {
               <h4 className="text-white font-bold uppercase tracking-wide mb-4">Contact</h4>
               <div className="space-y-2 text-zinc-500 text-sm">
                 <p>
-                  <a href="mailto:info@dynamicpaint.com" className="hover:text-lime-400 transition-colors">
-                    info@dynamicpaint.com
+                  <a href="mailto:dynamicpaintnj@gmail.com" className="hover:text-lime-400 transition-colors">
+                    dynamicpaintnj@gmail.com
                   </a>
                 </p>
                 <p className="text-zinc-600">
@@ -382,3 +382,4 @@ export default function QuotePage() {
     </div>
   )
 }
+
