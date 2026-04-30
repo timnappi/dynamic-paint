@@ -46,7 +46,7 @@ export default function BodyRepairsPage() {
     { src: "/gallery/audi-matte-gray.jpg" },
     { src: "/gallery/red-bumper-paint.jpg" },
     { src: "/gallery/camaro-bumper-paint.jpg" },
-    { src: "/camaro-before.jpg" },
+    { src: "/body-repair-red-camaro.png" },
     { src: "/camaro-after.jpg" },
   ]
 
