@@ -18,10 +18,21 @@ import Image from "next/image"
 export default function QuotePage() {
   const [showOtherService, setShowOtherService] = useState(false)
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
+  const [fileError, setFileError] = useState("")
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const filesArray = Array.from(e.target.files).slice(0, 5)
+      const totalSize = filesArray.reduce((sum, file) => sum + file.size, 0)
+
+      if (totalSize > 10 * 1024 * 1024) {
+        setSelectedFiles([])
+        setFileError("Photos are too large. Upload 10MB total or less, or send the form without photos and reply with images after we contact you.")
+        e.target.value = ""
+        return
+      }
+
+      setFileError("")
       setSelectedFiles(filesArray)
     }
   }
@@ -238,7 +249,7 @@ export default function QuotePage() {
                           <p className="mb-2 text-sm text-zinc-500">
                             <span className="font-semibold text-lime-400">Click to upload</span> or drag files
                           </p>
-                          <p className="text-xs text-zinc-600">PNG, JPG or JPEG</p>
+                          <p className="text-xs text-zinc-600">PNG, JPG or JPEG. 10MB total max.</p>
                         </div>
                         <input
                           id="photos"
@@ -260,6 +271,11 @@ export default function QuotePage() {
                           ))}
                         </ul>
                       </div>
+                    )}
+                    {fileError && (
+                      <p className="text-sm text-red-400 mt-2">
+                        {fileError}
+                      </p>
                     )}
                   </div>
                 </div>
