@@ -18,6 +18,7 @@ import Image from "next/image"
 export default function QuotePage() {
   const [showOtherService, setShowOtherService] = useState(false)
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
+  const [statusMessage, setStatusMessage] = useState("")
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -26,9 +27,36 @@ export default function QuotePage() {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log("Form submitted")
+
+    const formData = new FormData(e.currentTarget)
+    const services = formData.getAll("services").filter(Boolean).join(", ") || "Not selected"
+    const photoNames = selectedFiles.map((file) => file.name).join(", ") || "No files selected"
+
+    const emailBody = [
+      "New quote request from Dynamic Paint website:",
+      "",
+      `Name: ${formData.get("name") || ""}`,
+      `Email: ${formData.get("email") || ""}`,
+      `Phone: ${formData.get("phone") || ""}`,
+      `Services: ${services}`,
+      `Other Service: ${formData.get("otherService") || ""}`,
+      `Vehicle: ${formData.get("vehicle") || ""}`,
+      `Number of Wheels: ${formData.get("wheelCount") || ""}`,
+      `Wheel Size: ${formData.get("wheelSize") || ""}`,
+      `Photos Selected: ${photoNames}`,
+      "",
+      "Details:",
+      `${formData.get("description") || ""}`,
+      "",
+      "Note: The website can list selected photo names here. Attach the photos to this email before sending."
+    ].join("\n")
+
+    const subject = encodeURIComponent(`Dynamic Paint Quote Request - ${formData.get("name") || "New Lead"}`)
+    const body = encodeURIComponent(emailBody)
+    window.location.href = `mailto:info@dynamicpaint.com?subject=${subject}&body=${body}`
+    setStatusMessage("Your email app should open with the quote details filled in. Attach your photos there before sending.")
   }
 
   return (
@@ -57,6 +85,7 @@ export default function QuotePage() {
                     </Label>
                     <Input
                       id="name"
+                      name="name"
                       type="text"
                       required
                       className="bg-zinc-900 border-zinc-800 text-white placeholder-zinc-600 focus:border-lime-400 mt-2"
@@ -70,6 +99,7 @@ export default function QuotePage() {
                     </Label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
                       required
                       className="bg-zinc-900 border-zinc-800 text-white placeholder-zinc-600 focus:border-lime-400 mt-2"
@@ -83,6 +113,7 @@ export default function QuotePage() {
                     </Label>
                     <Input
                       id="phone"
+                      name="phone"
                       type="tel"
                       required
                       className="bg-zinc-900 border-zinc-800 text-white placeholder-zinc-600 focus:border-lime-400 mt-2"
@@ -98,37 +129,37 @@ export default function QuotePage() {
                     <Label className="text-zinc-400 mb-3 block uppercase tracking-wide text-sm">Select Services</Label>
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">
-                        <Checkbox id="custom-wheels" className="border-zinc-700 data-[state=checked]:bg-lime-400 data-[state=checked]:border-lime-400" />
+                        <Checkbox id="custom-wheels" name="services" value="Custom Wheel Colors" className="border-zinc-700 data-[state=checked]:bg-lime-400 data-[state=checked]:border-lime-400" />
                         <label htmlFor="custom-wheels" className="text-white cursor-pointer">
                           Custom Wheel Colors
                         </label>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <Checkbox id="wheel-repair" className="border-zinc-700 data-[state=checked]:bg-lime-400 data-[state=checked]:border-lime-400" />
+                        <Checkbox id="wheel-repair" name="services" value="Wheel Repairs" className="border-zinc-700 data-[state=checked]:bg-lime-400 data-[state=checked]:border-lime-400" />
                         <label htmlFor="wheel-repair" className="text-white cursor-pointer">
                           Wheel Repairs
                         </label>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <Checkbox id="window-tint" className="border-zinc-700 data-[state=checked]:bg-lime-400 data-[state=checked]:border-lime-400" />
+                        <Checkbox id="window-tint" name="services" value="Window Tinting" className="border-zinc-700 data-[state=checked]:bg-lime-400 data-[state=checked]:border-lime-400" />
                         <label htmlFor="window-tint" className="text-white cursor-pointer">
                           Window Tinting
                         </label>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <Checkbox id="pdr" className="border-zinc-700 data-[state=checked]:bg-lime-400 data-[state=checked]:border-lime-400" />
+                        <Checkbox id="pdr" name="services" value="Paintless Dent Repair" className="border-zinc-700 data-[state=checked]:bg-lime-400 data-[state=checked]:border-lime-400" />
                         <label htmlFor="pdr" className="text-white cursor-pointer">
                           Paintless Dent Repair
                         </label>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <Checkbox id="body-repair" className="border-zinc-700 data-[state=checked]:bg-lime-400 data-[state=checked]:border-lime-400" />
+                        <Checkbox id="body-repair" name="services" value="Auto Body Small Repairs" className="border-zinc-700 data-[state=checked]:bg-lime-400 data-[state=checked]:border-lime-400" />
                         <label htmlFor="body-repair" className="text-white cursor-pointer">
                           Auto Body Small Repairs
                         </label>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <Checkbox id="mobile" className="border-zinc-700 data-[state=checked]:bg-lime-400 data-[state=checked]:border-lime-400" />
+                        <Checkbox id="mobile" name="services" value="Mobile Service" className="border-zinc-700 data-[state=checked]:bg-lime-400 data-[state=checked]:border-lime-400" />
                         <label htmlFor="mobile" className="text-white cursor-pointer">
                           Mobile Service (we come to you)
                         </label>
@@ -145,6 +176,7 @@ export default function QuotePage() {
                       </div>
                       {showOtherService && (
                         <Input
+                          name="otherService"
                           type="text"
                           className="bg-zinc-900 border-zinc-800 text-white placeholder-zinc-600 focus:border-lime-400 mt-2"
                           placeholder="What else do you need?"
@@ -163,6 +195,7 @@ export default function QuotePage() {
                     </Label>
                     <Input
                       id="vehicle"
+                      name="vehicle"
                       type="text"
                       className="bg-zinc-900 border-zinc-800 text-white placeholder-zinc-600 focus:border-lime-400 mt-2"
                       placeholder="e.g. 2022 BMW M4"
@@ -174,7 +207,7 @@ export default function QuotePage() {
                       <Label htmlFor="wheel-count" className="text-zinc-400 uppercase tracking-wide text-sm">
                         # of Wheels
                       </Label>
-                      <Select>
+                        <Select name="wheelCount">
                         <SelectTrigger id="wheel-count" className="bg-zinc-900 border-zinc-800 text-white mt-2">
                           <SelectValue placeholder="Select" />
                         </SelectTrigger>
@@ -192,7 +225,7 @@ export default function QuotePage() {
                       <Label htmlFor="wheel-size" className="text-zinc-400 uppercase tracking-wide text-sm">
                         Wheel Size
                       </Label>
-                      <Select>
+                        <Select name="wheelSize">
                         <SelectTrigger id="wheel-size" className="bg-zinc-900 border-zinc-800 text-white mt-2">
                           <SelectValue placeholder="Select" />
                         </SelectTrigger>
@@ -261,6 +294,7 @@ export default function QuotePage() {
                     </Label>
                     <Textarea
                       id="description"
+                      name="description"
                       rows={4}
                       className="bg-zinc-900 border-zinc-800 text-white placeholder-zinc-600 focus:border-lime-400 mt-2 resize-none"
                       placeholder="Tell us about your project..."
@@ -271,6 +305,11 @@ export default function QuotePage() {
                 <Button type="submit" className="w-full bg-lime-400 hover:bg-lime-300 text-black font-bold text-lg py-6 uppercase tracking-wide">
                   Send Quote Request
                 </Button>
+                {statusMessage && (
+                  <p className="text-sm text-lime-400 text-center">
+                    {statusMessage}
+                  </p>
+                )}
               </form>
             </CardContent>
           </Card>
