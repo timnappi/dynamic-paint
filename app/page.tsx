@@ -185,7 +185,7 @@ export default function Home() {
 
             <div className="relative aspect-square overflow-hidden group">
               <Image
-                src="/window-tinting-service.jpg"
+                src="/window-tint-dynamic-paint.png"
                 alt="Window tinting"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
