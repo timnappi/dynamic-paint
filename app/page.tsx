@@ -201,7 +201,7 @@ export default function Home() {
 
             <div className="relative aspect-square sm:col-span-2 overflow-hidden group">
               <Image
-                src="/paintless-dent-repair.jpg"
+                src="/paintless-dent-repair-suv.png"
                 alt="Paintless dent repair"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
