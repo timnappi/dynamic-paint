@@ -45,7 +45,7 @@ export default function BodyRepairsPage() {
     { src: "/gallery/advanti-wheel.jpg" },
     { src: "/gallery/audi-matte-gray.jpg" },
     { src: "/gallery/red-bumper-paint.jpg" },
-    { src: "/gallery/camaro-bumper-paint.jpg" },
+    { src: "/body-repair-black-truck.png" },
     { src: "/body-repair-red-camaro.png" },
     { src: "/body-repair-red-camaro-before.png" },
   ]
