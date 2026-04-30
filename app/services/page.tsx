@@ -53,7 +53,7 @@ export default function ServicesPage() {
       icon: Sun,
       title: "Window Tinting",
       href: "/quote?service=window-tinting",
-      image: "/window-tinting-service.jpg",
+      image: "/window-tint-dynamic-paint.png",
       description: "Premium window tint for style, privacy, and protection. Multiple shade levels to match your vibe.",
       features: [
         "Multiple tint percentages available",
