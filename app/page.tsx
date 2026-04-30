@@ -183,7 +183,7 @@ export default function Home() {
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-lime-400 transition-all" />
             </Link>
 
-            <div className="relative aspect-square overflow-hidden group">
+            <Link href="/window-tint" className="relative aspect-square overflow-hidden group block cursor-pointer">
               <Image
                 src="/window-tint-dynamic-paint.png"
                 alt="Window tinting"
@@ -197,7 +197,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-lime-400 transition-all" />
-            </div>
+            </Link>
 
             <div className="relative aspect-square sm:col-span-2 overflow-hidden group">
               <Image
@@ -400,7 +400,7 @@ export default function Home() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
+                  <Link href="/window-tint" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
                     Window Tinting
                   </Link>
                 </li>
