@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Navigation } from "@/components/navigation"
-import { CheckCircle, Wrench, Paintbrush, Car } from "lucide-react"
+import { CheckCircle, Wrench, Paintbrush, Car, SearchCheck } from "lucide-react"
 
 export default function BodyRepairsPage() {
   const services = [
@@ -16,6 +16,7 @@ export default function BodyRepairsPage() {
     "Factory OEM color matching",
     "Panel blending for seamless finish",
     "Minor collision repair",
+    "Remove & install",
   ]
 
   const processSteps = [
@@ -23,6 +24,11 @@ export default function BodyRepairsPage() {
       icon: Wrench,
       title: "Assessment & Metal Work",
       description: "We start by evaluating the damage. For dents and creases, we use precision metal work techniques to reshape the panel as close to original as possible before any filler is applied."
+    },
+    {
+      icon: SearchCheck,
+      title: "Remove & Install",
+      description: "When needed, we remove trim, bumpers, lights, and related parts to inspect what is hidden underneath. That helps us catch the full damage before repairs begin, then everything is reinstalled cleanly once the job is finished."
     },
     {
       icon: Paintbrush,
@@ -125,7 +131,7 @@ export default function BodyRepairsPage() {
                 How We Do It
               </h2>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
               {processSteps.map((step, index) => (
                 <div key={index} className="bg-black border border-zinc-800 p-6 hover:border-lime-400/50 transition-colors">
                   <div className="bg-lime-400/10 w-12 h-12 flex items-center justify-center mb-4">
