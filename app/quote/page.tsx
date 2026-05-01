@@ -19,6 +19,8 @@ export default function QuotePage() {
   const [showOtherService, setShowOtherService] = useState(false)
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
   const [fileError, setFileError] = useState("")
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
+  const [submitMessage, setSubmitMessage] = useState("")
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -34,6 +36,48 @@ export default function QuotePage() {
 
       setFileError("")
       setSelectedFiles(filesArray)
+    }
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    if (fileError) {
+      setSubmitStatus("error")
+      setSubmitMessage(fileError)
+      return
+    }
+
+    setSubmitStatus("sending")
+    setSubmitMessage("Sending your quote request...")
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/dynamicpaintnj@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+
+      const result = await response.json().catch(() => null)
+
+      if (!response.ok || result?.success === "false" || result?.success === false) {
+        throw new Error("Quote request failed")
+      }
+
+      setSubmitStatus("success")
+      setSubmitMessage("Quote request sent. We'll get back to you ASAP.")
+      form.reset()
+      setSelectedFiles([])
+      setShowOtherService(false)
+      setFileError("")
+    } catch {
+      setSubmitStatus("error")
+      setSubmitMessage("Something went wrong sending the quote. Try again, or email dynamicpaintnj@gmail.com directly.")
     }
   }
 
@@ -54,9 +98,7 @@ export default function QuotePage() {
           <Card className="bg-zinc-950 border-zinc-800">
             <CardContent className="p-8">
               <form
-                action="https://formsubmit.co/dynamicpaintnj@gmail.com"
-                method="POST"
-                encType="multipart/form-data"
+                onSubmit={handleSubmit}
                 className="space-y-8"
               >
                 <input type="hidden" name="_subject" value="New Dynamic Paint Quote Request" />
@@ -285,7 +327,7 @@ export default function QuotePage() {
 
                   <div>
                     <Label htmlFor="description" className="text-zinc-400 uppercase tracking-wide text-sm">
-                      Details, ideas, questions — let us know
+                      Details, ideas, questions - let us know
                     </Label>
                     <Textarea
                       id="description"
@@ -297,9 +339,18 @@ export default function QuotePage() {
                   </div>
                 </div>
 
-                <Button type="submit" className="w-full bg-lime-400 hover:bg-lime-300 text-black font-bold text-lg py-6 uppercase tracking-wide">
-                  Send Quote Request
+                <Button
+                  type="submit"
+                  disabled={submitStatus === "sending"}
+                  className="w-full bg-lime-400 hover:bg-lime-300 text-black font-bold text-lg py-6 uppercase tracking-wide disabled:opacity-60"
+                >
+                  {submitStatus === "sending" ? "Sending..." : "Send Quote Request"}
                 </Button>
+                {submitMessage && (
+                  <p className={`text-sm text-center ${submitStatus === "success" ? "text-lime-400" : submitStatus === "error" ? "text-red-400" : "text-zinc-400"}`}>
+                    {submitMessage}
+                  </p>
+                )}
                 <p className="text-xs text-zinc-500 text-center">
                   Quote requests are sent directly to dynamicpaintnj@gmail.com. If photos are attached, total upload size must stay under 10MB.
                 </p>
@@ -322,7 +373,7 @@ export default function QuotePage() {
                 />
               </div>
               <p className="text-zinc-500 text-sm">
-                Your one-stop shop for automotive reconditioning. Custom style or factory fresh — we make it happen.
+                Your one-stop shop for automotive reconditioning. Custom style or factory fresh - we make it happen.
               </p>
             </div>
 
