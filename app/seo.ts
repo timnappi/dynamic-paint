@@ -143,7 +143,7 @@ export const seoRoutes = {
       "window tint gallery",
       "automotive reconditioning photos",
     ],
-    image: "/gallery/all-projects-blue-mustang.png",
+    image: "/gallery/all-projects-blue-mustang.jpg",
   },
   about: {
     path: "/about",

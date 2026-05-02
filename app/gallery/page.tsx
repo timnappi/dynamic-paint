@@ -14,17 +14,17 @@ export default function GalleryPage() {
   const [lightboxIndex, setLightboxIndex] = useState(0)
 
   const galleryImages = [
-    { src: "/gallery/all-projects-blue-mustang.png", alt: "Blue Mustang with custom automotive finish" },
-    { src: "/gallery/all-projects-porsche-gt.png", alt: "Porsche GT project after reconditioning work" },
-    { src: "/gallery/all-projects-window-tint-mustang.png", alt: "Mustang with completed window tint" },
-    { src: "/gallery/all-projects-vw-before-after.png", alt: "Volkswagen wheel repair before and after" },
-    { src: "/gallery/all-projects-classic-gray-car.jpeg", alt: "Classic gray car restoration detail" },
-    { src: "/gallery/all-projects-black-truck.png", alt: "Black truck after paint and reconditioning work" },
-    { src: "/gallery/all-projects-porsche-spyder.png", alt: "Porsche Spyder project detail" },
-    { src: "/gallery/all-projects-bmw-x7.png", alt: "BMW X7 wheel and finish project" },
-    { src: "/gallery/all-projects-blue-shelby.png", alt: "Blue Shelby GT350 custom finish" },
-    { src: "/gallery/all-projects-red-camaro-after.png", alt: "Red Camaro after body paint repair" },
-    { src: "/gallery/all-projects-red-camaro-before.png", alt: "Red Camaro before body paint repair" },
+    { src: "/gallery/all-projects-blue-mustang.jpg", alt: "Blue Mustang with custom automotive finish" },
+    { src: "/gallery/all-projects-porsche-gt.jpg", alt: "Porsche GT project after reconditioning work" },
+    { src: "/gallery/all-projects-window-tint-mustang.jpg", alt: "Mustang with completed window tint" },
+    { src: "/gallery/all-projects-vw-before-after.jpg", alt: "Volkswagen wheel repair before and after" },
+    { src: "/gallery/all-projects-classic-gray-car.jpg", alt: "Classic gray car restoration detail" },
+    { src: "/gallery/all-projects-black-truck.jpg", alt: "Black truck after paint and reconditioning work" },
+    { src: "/gallery/all-projects-porsche-spyder.jpg", alt: "Porsche Spyder project detail" },
+    { src: "/gallery/all-projects-bmw-x7.jpg", alt: "BMW X7 wheel and finish project" },
+    { src: "/gallery/all-projects-blue-shelby.jpg", alt: "Blue Shelby GT350 custom finish" },
+    { src: "/gallery/all-projects-red-camaro-after.jpg", alt: "Red Camaro after body paint repair" },
+    { src: "/gallery/all-projects-red-camaro-before.jpg", alt: "Red Camaro before body paint repair" },
   ]
 
   const featuredSlides = [
@@ -83,6 +83,7 @@ export default function GalleryPage() {
                 fill
                 className="object-cover"
                 priority
+                unoptimized
                 sizes="(max-width: 768px) 100vw, 1024px"
               />
 
@@ -140,6 +141,7 @@ export default function GalleryPage() {
                   alt={image.alt}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  unoptimized
                   sizes="(max-width: 459px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 25vw"
                 />
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-lime-400 transition-all" />
@@ -189,6 +191,7 @@ export default function GalleryPage() {
               alt={galleryImages[lightboxIndex].alt}
               fill
               className="object-contain"
+              unoptimized
               sizes="100vw"
             />
           </div>
