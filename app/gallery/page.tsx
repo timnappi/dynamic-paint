@@ -76,22 +76,15 @@ export default function GalleryPage() {
           {/* Main Slideshow */}
           <div className="relative max-w-5xl mx-auto">
             <div className="relative aspect-[16/9] overflow-hidden bg-zinc-900">
-              {featuredSlides.map((slide, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                    index === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105"
-                  }`}
-                >
-                  <Image
-                    src={slide.src}
-                    alt={slide.alt}
-                    fill
-                    className="object-cover"
-                    priority={index === 0}
-                  />
-                </div>
-              ))}
+              <Image
+                key={currentSlide}
+                src={featuredSlides[currentSlide].src}
+                alt={featuredSlides[currentSlide].alt}
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, 1024px"
+              />
 
               {/* Navigation Arrows */}
               <button
@@ -147,6 +140,7 @@ export default function GalleryPage() {
                   alt={image.alt}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  sizes="(max-width: 459px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 25vw"
                 />
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-lime-400 transition-all" />
               </button>
@@ -195,6 +189,7 @@ export default function GalleryPage() {
               alt={galleryImages[lightboxIndex].alt}
               fill
               className="object-contain"
+              sizes="100vw"
             />
           </div>
 

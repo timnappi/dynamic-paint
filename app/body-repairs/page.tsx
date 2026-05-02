@@ -114,6 +114,7 @@ export default function BodyRepairsPage() {
                   alt="Auto body paint repair"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 767px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 border-2 border-lime-400/20" />
               </div>
@@ -133,6 +134,7 @@ export default function BodyRepairsPage() {
                   alt="Dynamic Paint auto body painter"
                   fill
                   className="object-cover object-center"
+                  sizes="(max-width: 767px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
                 <div className="absolute inset-0 border border-lime-400/20" />
@@ -207,6 +209,7 @@ export default function BodyRepairsPage() {
                     alt={image.alt}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 419px) 100vw, (max-width: 767px) 50vw, 25vw"
                   />
                   <div className="absolute inset-0 border-2 border-transparent group-hover:border-lime-400 transition-all" />
                 </div>
