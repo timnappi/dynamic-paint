@@ -3,7 +3,8 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Navigation } from "@/components/navigation"
-import { ChevronLeft, ChevronRight, X } from "lucide-react"
+import { SiteFooter } from "@/components/site-footer"
+import { CheckCircle, ChevronLeft, ChevronRight, X, Zap, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -13,46 +14,23 @@ export default function GalleryPage() {
   const [lightboxIndex, setLightboxIndex] = useState(0)
 
   const galleryImages = [
-    { src: "/gallery/black-wheels-set.jpg" },
-    { src: "/gallery/c10-truck-side.jpg" },
-    { src: "/gallery/camaro-bumper-paint.jpg" },
-    { src: "/gallery/charger-daytona.jpg" },
-    { src: "/gallery/porsche-carrera-gt.jpg" },
-    { src: "/gallery/c10-truck-front.jpg" },
-    { src: "/gallery/mustang-blue.jpg" },
-    { src: "/gallery/silverado-black.jpg" },
-    { src: "/gallery/white-wheels-paint.jpg" },
-    { src: "/gallery/shelby-gt350.jpg" },
-    { src: "/gallery/lexus-wheel.jpg" },
-    { src: "/gallery/pontiac-classic.jpg" },
-    { src: "/gallery/mustang-shop-work.jpg" },
-    { src: "/camaro-after.jpg" },
-    { src: "/camaro-before.jpg" },
-    { src: "/gallery/porsche-spyder-rs.jpg" },
-    { src: "/gallery/mustang-honeycomb-wrap.jpg" },
-    { src: "/gallery/porsche-cayenne-black.jpg" },
-    { src: "/gallery/shelby-gt350-blue.jpg" },
-    { src: "/gallery/bmw-x7-gray.jpg" },
-    { src: "/gallery/bmw-black-wheels.jpg" },
-    { src: "/gallery/mustang-blue-bronze.jpg" },
+    { src: "/gallery/all-projects-blue-mustang.png", alt: "Blue Mustang with custom automotive finish" },
+    { src: "/gallery/all-projects-porsche-gt.png", alt: "Porsche GT project after reconditioning work" },
+    { src: "/gallery/all-projects-window-tint-mustang.png", alt: "Mustang with completed window tint" },
+    { src: "/gallery/all-projects-vw-before-after.png", alt: "Volkswagen wheel repair before and after" },
+    { src: "/gallery/all-projects-classic-gray-car.jpeg", alt: "Classic gray car restoration detail" },
+    { src: "/gallery/all-projects-black-truck.png", alt: "Black truck after paint and reconditioning work" },
+    { src: "/gallery/all-projects-porsche-spyder.png", alt: "Porsche Spyder project detail" },
+    { src: "/gallery/all-projects-bmw-x7.png", alt: "BMW X7 wheel and finish project" },
+    { src: "/gallery/all-projects-blue-shelby.png", alt: "Blue Shelby GT350 custom finish" },
+    { src: "/gallery/all-projects-red-camaro-after.png", alt: "Red Camaro after body paint repair" },
+    { src: "/gallery/all-projects-red-camaro-before.png", alt: "Red Camaro before body paint repair" },
   ]
 
-  // Only full car photos for the slideshow
   const featuredSlides = [
-    { src: "/gallery/c10-truck-front.jpg" },
-    { src: "/gallery/charger-daytona.jpg" },
-    { src: "/gallery/porsche-carrera-gt.jpg" },
-    { src: "/gallery/mustang-blue.jpg" },
-    { src: "/gallery/silverado-black.jpg" },
-    { src: "/gallery/shelby-gt350.jpg" },
-    { src: "/gallery/pontiac-classic.jpg" },
-    { src: "/gallery/mustang-shop-work.jpg" },
-    { src: "/camaro-after.jpg" },
-    { src: "/gallery/porsche-spyder-rs.jpg" },
-    { src: "/gallery/mustang-honeycomb-wrap.jpg" },
-    { src: "/gallery/porsche-cayenne-black.jpg" },
-    { src: "/gallery/shelby-gt350-blue.jpg" },
-    { src: "/gallery/mustang-blue-bronze.jpg" },
+    galleryImages[1],
+    galleryImages[0],
+    ...galleryImages.slice(2),
   ]
 
   const nextSlide = () => {
@@ -85,12 +63,12 @@ export default function GalleryPage() {
       <Navigation />
 
       {/* Hero Slideshow */}
-      <section className="relative pt-24 pb-8 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 pb-8 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">Our Work</span>
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-4 uppercase tracking-tight mt-2">Gallery</h1>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-4 uppercase tracking-tight mt-2">Gallery</h1>
+            <p className="text-base sm:text-xl text-zinc-400 max-w-2xl mx-auto">
               Real work. Real results. Swipe through our recent projects.
             </p>
           </div>
@@ -107,7 +85,7 @@ export default function GalleryPage() {
                 >
                   <Image
                     src={slide.src}
-                    alt="Gallery image"
+                    alt={slide.alt}
                     fill
                     className="object-cover"
                     priority={index === 0}
@@ -157,16 +135,16 @@ export default function GalleryPage() {
             <p className="text-zinc-500 mt-2">Click any image to view full size</p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 min-[460px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-7xl mx-auto">
             {galleryImages.map((image, index) => (
               <button
                 key={index}
                 onClick={() => openLightbox(index)}
-                className="relative w-[280px] aspect-[16/9] overflow-hidden group cursor-pointer flex-shrink-0"
+                className="relative w-full aspect-[16/10] overflow-hidden group cursor-pointer"
               >
                 <Image
                   src={image.src}
-                  alt="Gallery image"
+                  alt={image.alt}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
@@ -174,6 +152,13 @@ export default function GalleryPage() {
               </button>
             ))}
           </div>
+          {galleryImages.length === 0 && (
+            <div className="max-w-2xl mx-auto border border-zinc-800 bg-black/40 p-8 text-center">
+              <p className="text-zinc-500 uppercase tracking-wide text-sm">
+                New project photos coming soon.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -207,7 +192,7 @@ export default function GalleryPage() {
           <div className="relative w-full h-full max-w-6xl max-h-[80vh] mx-4">
             <Image
               src={galleryImages[lightboxIndex].src}
-              alt="Gallery image"
+              alt={galleryImages[lightboxIndex].alt}
               fill
               className="object-contain"
             />
@@ -222,20 +207,35 @@ export default function GalleryPage() {
       )}
 
       {/* Stats */}
-      <section className="py-16 bg-black">
+      <section className="bg-zinc-950 border-y border-zinc-800">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
-            <div>
-              <div className="text-5xl font-black text-lime-400 mb-2">2K+</div>
-              <div className="text-zinc-500 uppercase tracking-wide text-sm">Wheels Done</div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto py-12 sm:py-16">
+            <div className="text-center group">
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <div className="w-12 h-12 bg-lime-400/10 flex items-center justify-center group-hover:bg-lime-400/20 transition-colors">
+                  <CheckCircle className="w-6 h-6 text-lime-400" />
+                </div>
+                <div className="text-3xl sm:text-5xl font-black text-white">Premium</div>
+              </div>
+              <p className="text-zinc-500 uppercase tracking-wide text-sm font-medium">Show-Quality Finish</p>
             </div>
-            <div>
-              <div className="text-5xl font-black text-lime-400 mb-2">500+</div>
-              <div className="text-zinc-500 uppercase tracking-wide text-sm">Tint Jobs</div>
+            <div className="text-center group">
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <div className="w-12 h-12 bg-lime-400/10 flex items-center justify-center group-hover:bg-lime-400/20 transition-colors">
+                  <Zap className="w-6 h-6 text-lime-400" />
+                </div>
+                <div className="text-3xl sm:text-5xl font-black text-white">Mobile</div>
+              </div>
+              <p className="text-zinc-500 uppercase tracking-wide text-sm font-medium">Service Available</p>
             </div>
-            <div>
-              <div className="text-5xl font-black text-lime-400 mb-2">100%</div>
-              <div className="text-zinc-500 uppercase tracking-wide text-sm">Satisfaction</div>
+            <div className="text-center group">
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <div className="w-12 h-12 bg-lime-400/10 flex items-center justify-center group-hover:bg-lime-400/20 transition-colors">
+                  <Users className="w-6 h-6 text-lime-400" />
+                </div>
+                <div className="text-3xl sm:text-5xl font-black text-white">OEM+</div>
+              </div>
+              <p className="text-zinc-500 uppercase tracking-wide text-sm font-medium">Color Matching</p>
             </div>
           </div>
         </div>
@@ -244,10 +244,10 @@ export default function GalleryPage() {
       {/* CTA */}
       <section className="py-20 bg-zinc-950">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">
             Want results like these?
           </h2>
-          <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
             Hit us up for a free quote. Let&apos;s make your ride look sick.
           </p>
           <Button asChild size="lg" className="bg-lime-400 hover:bg-lime-300 text-black font-bold text-lg px-8 uppercase tracking-wide">
@@ -257,70 +257,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black border-t border-zinc-800 py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div>
-              <div className="mb-4">
-                <Image
-                  src="/dynamic-paint-logo-transparent.png"
-                  alt="Dynamic Paint Logo"
-                  width={200}
-                  height={200}
-                  className="h-24 w-auto"
-                />
-              </div>
-              <p className="text-zinc-500 text-sm">
-                Your one-stop shop for automotive reconditioning. Custom style or factory fresh — we make it happen.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold uppercase tracking-wide mb-4">Navigation</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/services" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/gallery" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Gallery
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold uppercase tracking-wide mb-4">Contact</h4>
-              <div className="space-y-2 text-zinc-500 text-sm">
-                <p>
-                  <a href="mailto:dynamicpaintnj@gmail.com" className="hover:text-lime-400 transition-colors">
-                    dynamicpaintnj@gmail.com
-                  </a>
-                </p>
-                <p className="text-zinc-600">
-                  Mobile services available
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-zinc-800 mt-8 pt-8 text-center text-xs text-zinc-600">
-            <p>&copy; {new Date().getFullYear()} Dynamic Paint. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

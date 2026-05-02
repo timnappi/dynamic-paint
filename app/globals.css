@@ -121,6 +121,13 @@
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
   }
 }
 

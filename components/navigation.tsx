@@ -28,8 +28,8 @@ export function Navigation() {
         isScrolled ? "bg-black/95 backdrop-blur-sm shadow-lg shadow-lime-400/5" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-3 sm:px-4">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           <Link href="/" className="flex items-center gap-2 group relative">
             <div className="absolute inset-0 bg-lime-400/10 blur-lg group-hover:bg-lime-400/20 transition-all duration-300" />
             <Image
@@ -37,7 +37,7 @@ export function Navigation() {
               alt="Dynamic Paint Logo"
               width={580}
               height={371}
-              className="group-hover:scale-105 transition-transform h-14 md:h-16 w-auto object-contain drop-shadow-lg group-hover:drop-shadow-xl group-hover:drop-shadow-[0_0_20px_rgba(172,255,76,0.4)]"
+              className="group-hover:scale-105 transition-transform h-12 sm:h-14 md:h-16 w-auto object-contain drop-shadow-lg group-hover:drop-shadow-xl group-hover:drop-shadow-[0_0_20px_rgba(172,255,76,0.4)]"
               priority
               unoptimized
             />
@@ -79,11 +79,11 @@ export function Navigation() {
       )}
 
       <div
-        className={`fixed top-20 right-0 bottom-0 w-72 bg-zinc-950 border-l border-zinc-800 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-16 sm:top-20 right-0 bottom-0 w-[min(20rem,85vw)] bg-zinc-950 border-l border-zinc-800 transform transition-transform duration-300 ease-in-out md:hidden ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col p-6 gap-6">
+        <div className="flex flex-col p-5 sm:p-6 gap-5 sm:gap-6">
           <Link
             href="/services"
             className="text-zinc-400 hover:text-lime-400 transition-colors text-lg font-medium uppercase tracking-wide"

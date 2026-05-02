@@ -1,9 +1,14 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
-import { Palette, Wrench, Car, Sun, CircleDot, Truck, CheckCircle, ArrowUpRight } from "lucide-react"
+import { SiteFooter } from "@/components/site-footer"
+import { Palette, Wrench, Car, Sun, CircleDot, Truck, CheckCircle, ArrowUpRight, Sparkles, MapPin } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { JsonLd, breadcrumbJsonLd, pageJsonLd, serviceCatalogJsonLd } from "../structured-data"
+import { buildMetadata, seoRoutes } from "../seo"
+
+export const metadata = buildMetadata(seoRoutes.services)
 
 export default function ServicesPage() {
   const services = [
@@ -50,6 +55,20 @@ export default function ServicesPage() {
       ],
     },
     {
+      icon: Sparkles,
+      title: "Paint Corrections",
+      href: "/quote?service=paint-correction",
+      image: "/paint-correction-buffing.png",
+      description: "Bring dull, scratched, or aged paint back to life with professional wet sanding, buffing, and polishing.",
+      features: [
+        "Wet sanding for deeper defects",
+        "Buffing and polishing",
+        "Surface scratch removal",
+        "Aged clear coat restoration",
+        "Gloss and shine enhancement",
+      ],
+    },
+    {
       icon: Sun,
       title: "Window Tinting",
       href: "/window-tint",
@@ -82,7 +101,7 @@ export default function ServicesPage() {
       title: "Mobile Services",
       href: "/quote?service=mobile",
       image: "/mobile-wheel-repair.jpg",
-      description: "Can&apos;t come to us? We come to you. Mobile wheel and bumper repair at your convenience.",
+      description: "Can't come to us? We come to you. Mobile wheel and bumper repair at your convenience.",
       features: [
         "On-site wheel repairs",
         "Mobile bumper touch-ups",
@@ -95,13 +114,14 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-black">
+      <JsonLd data={[pageJsonLd(seoRoutes.services, "CollectionPage"), breadcrumbJsonLd(seoRoutes.services), serviceCatalogJsonLd()]} />
       <Navigation />
 
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-24 sm:pt-32 pb-14 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero-custom-wheels-street-style.jpg"
-            alt="Services"
+            alt="Custom wheels and automotive reconditioning services"
             fill
             className="object-cover opacity-30"
           />
@@ -110,45 +130,49 @@ export default function ServicesPage() {
 
         <div className="relative z-10 container mx-auto px-4 text-center">
           <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">What We Offer</span>
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 text-balance uppercase tracking-tight mt-2">Our Services</h1>
-          <p className="text-xl text-zinc-400 max-w-3xl mx-auto text-balance">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-5 sm:mb-6 text-balance uppercase tracking-tight mt-2">Our Services</h1>
+          <p className="text-base sm:text-xl text-zinc-400 max-w-3xl mx-auto text-balance">
             From custom wheel paint jobs to factory-fresh restoration. Whatever your ride needs, we got you covered.
           </p>
+          <div className="mt-6 inline-flex max-w-[22rem] sm:max-w-none flex-wrap items-center justify-center gap-2 border border-zinc-800 bg-black/50 px-3 sm:px-4 py-2 text-xs sm:text-sm font-bold uppercase tracking-wide text-zinc-400">
+            <MapPin className="h-4 w-4 text-lime-400" />
+            <span>Serving Ocean County, Atlantic County &amp; Monmouth County, NJ</span>
+          </div>
         </div>
       </section>
 
-      <section className="py-20 bg-black">
+      <section className="py-12 sm:py-20 bg-black">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => (
               <Link key={index} href={service.href} className="group block">
                 <Card className="bg-zinc-950 border-zinc-800 overflow-hidden transition-all duration-300 group-hover:border-lime-400/60 group-hover:bg-zinc-900">
                   <CardContent className="p-0">
-                    <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1fr_1.05fr_240px] lg:items-stretch">
+                    <div className="grid gap-5 sm:gap-6 p-5 sm:p-8 lg:grid-cols-[1fr_1.05fr_240px] lg:items-stretch">
                       <div>
-                        <div className="bg-lime-400/10 w-16 h-16 flex items-center justify-center mb-4 transition-colors group-hover:bg-lime-400/20">
-                          <service.icon className="w-8 h-8 text-lime-400" />
+                        <div className="bg-lime-400/10 w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mb-4 transition-colors group-hover:bg-lime-400/20">
+                          <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-lime-400" />
                         </div>
                         <div className="flex items-start justify-between gap-4">
-                          <h3 className="text-2xl font-black text-white mb-3 uppercase tracking-tight">{service.title}</h3>
+                          <h3 className="text-xl sm:text-2xl font-black text-white mb-3 uppercase tracking-tight">{service.title}</h3>
                           <ArrowUpRight className="w-6 h-6 text-lime-400 opacity-70 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                         </div>
-                        <p className="text-zinc-500 transition-colors group-hover:text-zinc-400">{service.description}</p>
+                        <p className="text-sm sm:text-base text-zinc-500 transition-colors group-hover:text-zinc-400">{service.description}</p>
                       </div>
 
                       <div>
                         <h4 className="text-sm font-bold text-zinc-400 mb-4 uppercase tracking-wide">What&apos;s Included:</h4>
-                        <ul className="space-y-3">
+                        <ul className="space-y-2 sm:space-y-3">
                           {service.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start gap-3">
                               <CheckCircle className="w-5 h-5 text-lime-400 flex-shrink-0 mt-0.5" />
-                              <span className="text-zinc-300">{feature}</span>
+                              <span className="text-sm sm:text-base text-zinc-300">{feature}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="relative min-h-48 overflow-hidden border border-zinc-800 bg-black">
+                      <div className="relative min-h-44 sm:min-h-48 overflow-hidden border border-zinc-800 bg-black">
                         <Image
                           src={service.image}
                           alt={service.title}
@@ -167,12 +191,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-zinc-950">
+      <section className="py-14 sm:py-20 bg-zinc-950">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 text-balance uppercase tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-5 sm:mb-6 text-balance uppercase tracking-tight">
             Ready to transform your ride?
           </h2>
-          <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
             Get a free quote and let&apos;s make it happen.
           </p>
           <Button asChild size="lg" className="bg-lime-400 hover:bg-lime-300 text-black font-bold text-lg px-8 uppercase tracking-wide">
@@ -180,70 +204,7 @@ export default function ServicesPage() {
           </Button>
         </div>
       </section>
-
-      <footer className="bg-zinc-950 border-t border-zinc-800 py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div>
-              <div className="mb-4">
-                <Image
-                  src="/dynamic-paint-logo-transparent.png"
-                  alt="Dynamic Paint Logo"
-                  width={100}
-                  height={100}
-                />
-              </div>
-              <p className="text-zinc-500 text-sm">
-                Your one-stop shop for automotive reconditioning. Custom style or factory fresh — we make it happen.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold uppercase tracking-wide mb-4">Navigation</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/services" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/gallery" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Gallery
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold uppercase tracking-wide mb-4">Contact</h4>
-              <div className="space-y-2 text-zinc-500 text-sm">
-                <p>
-                  <a href="mailto:dynamicpaintnj@gmail.com" className="hover:text-lime-400 transition-colors">
-                    dynamicpaintnj@gmail.com
-                  </a>
-                </p>
-                <p className="text-zinc-600">
-                  Mobile services available
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-zinc-800 mt-8 pt-8 text-center text-xs text-zinc-600">
-            <p>&copy; {new Date().getFullYear()} Dynamic Paint. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

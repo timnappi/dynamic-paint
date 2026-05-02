@@ -1,43 +1,49 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
+import { SiteFooter } from "@/components/site-footer"
 import { Target, Users, Wrench, Heart } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { JsonLd, breadcrumbJsonLd, pageJsonLd } from "../structured-data"
+import { buildMetadata, seoRoutes } from "../seo"
+
+export const metadata = buildMetadata(seoRoutes.about)
 
 export default function AboutPage() {
   const values = [
     {
       icon: Target,
       title: "Quality First",
-      description: "We don&apos;t cut corners. Every job gets premium materials and expert attention.",
+      description: "We don't cut corners. Every job gets quality materials, careful prep, and expert attention.",
     },
     {
       icon: Users,
       title: "Customer Focused",
-      description: "Your vision matters. We listen, advise, and deliver exactly what you want.",
+      description: "Your vision matters. We listen, give honest guidance, and keep the work aligned with your goals.",
     },
     {
       icon: Wrench,
       title: "Always Evolving",
-      description: "New techniques, new finishes, new possibilities. We stay ahead of the game.",
+      description: "New techniques, better finishes, and sharper results. We keep improving the way we work.",
     },
     {
       icon: Heart,
       title: "Car Culture",
-      description: "We&apos;re enthusiasts too. Your ride is in hands that actually care.",
+      description: "We're enthusiasts too. Your ride is handled by people who care about the details.",
     },
   ]
 
   return (
     <div className="min-h-screen bg-black">
+      <JsonLd data={[pageJsonLd(seoRoutes.about, "AboutPage"), breadcrumbJsonLd(seoRoutes.about)]} />
       <Navigation />
 
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-24 sm:pt-32 pb-14 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero-custom-wheels-street-style.jpg"
-            alt="About Us"
+            alt="Custom wheel finish on a modified car"
             fill
             className="object-cover opacity-30"
           />
@@ -46,20 +52,20 @@ export default function AboutPage() {
 
         <div className="relative z-10 container mx-auto px-4 text-center">
           <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">Who We Are</span>
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 text-balance uppercase tracking-tight mt-2">About Us</h1>
-          <p className="text-xl text-zinc-400 max-w-3xl mx-auto text-balance">
-            We&apos;re not your typical auto shop. We&apos;re here to make your ride stand out.
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-5 sm:mb-6 text-balance uppercase tracking-tight mt-2">About Us</h1>
+          <p className="text-base sm:text-xl text-zinc-400 max-w-3xl mx-auto text-balance">
+            Detail-focused automotive reconditioning for clean repairs, custom finishes, and a sharper-looking ride.
           </p>
         </div>
       </section>
 
-      <section className="py-20 bg-black">
+      <section className="py-12 sm:py-20 bg-black">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <Card className="bg-zinc-950 border-zinc-800">
-              <CardContent className="p-8 md:p-12">
-                <h2 className="text-3xl font-black text-white mb-6 uppercase tracking-tight">Our Story</h2>
-                <div className="space-y-4 text-zinc-400 leading-relaxed">
+              <CardContent className="p-5 sm:p-8 md:p-12">
+                <h2 className="text-2xl sm:text-3xl font-black text-white mb-5 sm:mb-6 uppercase tracking-tight">Our Story</h2>
+                <div className="space-y-4 text-sm sm:text-base text-zinc-400 leading-relaxed">
                   <p>
                     Dynamic Paint started because we were tired of the same old auto shops with their sky-high prices and cookie-cutter results. We saw a gap — people who wanted quality work on their wheels and body without getting ripped off or waiting weeks.
                   </p>
@@ -70,7 +76,10 @@ export default function AboutPage() {
                     We specialize in custom wheel colors, wheel repairs, window tinting, paintless dent repair, and mobile services. That last part is key — we know you&apos;re busy. So we come to you.
                   </p>
                   <p>
-                    Our approach is simple: quality work, fair prices, and treating every car like it&apos;s our own. From full-custom builds to quick touch-ups, we bring the same energy and attention to detail.
+                    We have worked in many different body shop environments, from large corporate operations to small family-owned shops. That experience taught us what customers really look for in a completed job: clear communication, clean fit and finish, honest expectations, and work that feels worth it when they pick up the keys.
+                  </p>
+                  <p>
+                    Our approach is simple: quality work, fair prices, and treating every car like it&apos;s our own. We keep the customer&apos;s needs first, which leads to better results and higher satisfaction.
                   </p>
                 </div>
               </CardContent>
@@ -79,15 +88,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-zinc-950">
+      <section className="py-12 sm:py-20 bg-zinc-950">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-black text-white text-center mb-4 uppercase tracking-tight">What We Stand For</h2>
-          <p className="text-zinc-500 text-center mb-12 text-lg">Our core values drive everything we do</p>
+          <h2 className="text-3xl sm:text-4xl font-black text-white text-center mb-4 uppercase tracking-tight">What We Stand For</h2>
+          <p className="text-zinc-500 text-center mb-8 sm:mb-12 text-base sm:text-lg">Our core values drive everything we do</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {values.map((value, index) => (
               <Card key={index} className="bg-zinc-900 border-zinc-800 text-center hover:border-lime-400/30 transition-colors">
-                <CardContent className="p-6">
+                <CardContent className="p-5 sm:p-6">
                   <div className="bg-lime-400/10 w-12 h-12 flex items-center justify-center mx-auto mb-4">
                     <value.icon className="w-6 h-6 text-lime-400" />
                   </div>
@@ -100,10 +109,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-black">
+      <section className="py-12 sm:py-20 bg-black">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-black text-white text-center mb-12 uppercase tracking-tight">Why Dynamic Paint?</h2>
+            <h2 className="text-3xl sm:text-4xl font-black text-white text-center mb-8 sm:mb-12 uppercase tracking-tight">Why Dynamic Paint?</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <Card className="bg-zinc-950 border-zinc-800 hover:border-lime-400/30 transition-colors">
                 <CardContent className="p-6">
@@ -142,12 +151,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-zinc-950">
+      <section className="py-12 sm:py-20 bg-zinc-950">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 text-balance uppercase tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-5 sm:mb-6 text-balance uppercase tracking-tight">
             Ready to work with us?
           </h2>
-          <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
             Get in touch or request a quote. Let&apos;s make something happen.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -165,72 +174,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      <footer className="bg-zinc-950 border-t border-zinc-800 py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div>
-              <div className="mb-4">
-                <Image
-                  src="/dynamic-paint-logo-transparent.png"
-                  alt="Dynamic Paint Logo"
-                  width={580}
-                  height={371}
-                  className="h-20 w-auto object-contain"
-                  unoptimized
-                />
-              </div>
-              <p className="text-zinc-500 text-sm">
-                Your one-stop shop for automotive reconditioning. Custom style or factory fresh — we make it happen.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold uppercase tracking-wide mb-4">Navigation</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/services" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/gallery" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Gallery
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold uppercase tracking-wide mb-4">Contact</h4>
-              <div className="space-y-2 text-zinc-500 text-sm">
-                <p>
-                  <a href="mailto:dynamicpaintnj@gmail.com" className="hover:text-lime-400 transition-colors">
-                    dynamicpaintnj@gmail.com
-                  </a>
-                </p>
-                <p className="text-zinc-600">
-                  Mobile services available
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-zinc-800 mt-8 pt-8 text-center text-xs text-zinc-600">
-            <p>&copy; {new Date().getFullYear()} Dynamic Paint. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

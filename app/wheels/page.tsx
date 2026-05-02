@@ -1,6 +1,7 @@
 "use client"
 
 import { Navigation } from "@/components/navigation"
+import { SiteFooter } from "@/components/site-footer"
 import { Button } from "@/components/ui/button"
 import { CheckCircle } from "lucide-react"
 import Image from "next/image"
@@ -11,11 +12,14 @@ export default function WheelsPage() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   const wheelImages = [
-    { src: "/gallery/black-wheels-set.jpg" },
-    { src: "/gallery/white-wheels-paint.jpg" },
-    { src: "/gallery/lexus-wheel.jpg" },
-    { src: "/gallery/bmw-black-wheels.jpg" },
-    { src: "/wheel-repair-before-after.jpg" },
+    { src: "/gallery/black-wheels-set.jpg", alt: "Gloss black custom wheel set" },
+    { src: "/gallery/white-wheels-paint.jpg", alt: "White painted wheels after refinishing" },
+    { src: "/gallery/lexus-wheel.jpg", alt: "Lexus wheel repair and refinish detail" },
+    { src: "/gallery/bmw-black-wheels.jpg", alt: "BMW wheels refinished in black" },
+    { src: "/wheel-repair-before-after.jpg", alt: "Before and after wheel repair result" },
+    { src: "/gallery/mazda-wheel-repair-before-after.png", alt: "Mazda wheel curb rash repair before and after" },
+    { src: "/gallery/gloss-black-machined-wheel.png", alt: "Gloss black and machined face custom wheel finish" },
+    { src: "/gallery/subaru-sti-silver-wheel.png", alt: "Subaru STI with silver performance wheels" },
   ]
 
   const openLightbox = (index: number) => setLightboxIndex(index)
@@ -28,7 +32,7 @@ export default function WheelsPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 sm:pb-24 overflow-hidden">
+      <section className="relative pt-24 sm:pt-32 pb-14 sm:pb-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/wheel-repair-before-after.jpg"
@@ -42,10 +46,10 @@ export default function WheelsPage() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">Wheel Specialists</span>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mt-3 mb-6 text-balance uppercase tracking-tight leading-none drop-shadow-[0_4px_18px_rgba(0,0,0,0.85)]">
+            <h1 className="text-4xl min-[390px]:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mt-3 mb-5 sm:mb-6 text-balance uppercase tracking-tight leading-none drop-shadow-[0_4px_18px_rgba(0,0,0,0.85)]">
               Wheel Repairs <span className="text-lime-400">&amp;</span> Restoration
             </h1>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-base sm:text-xl text-zinc-400 max-w-2xl mx-auto">
               From curb rash to custom colors. We bring your wheels back to life with expert craftsmanship and factory-matched precision.
             </p>
           </div>
@@ -87,7 +91,7 @@ export default function WheelsPage() {
                   </li>
                 </ul>
               </div>
-              <div className="relative aspect-square overflow-hidden">
+              <div className="relative aspect-[4/3] md:aspect-square overflow-hidden">
                 <Image
                   src="/wheel-repair-before-after.jpg"
                   alt="Wheel repair process"
@@ -105,7 +109,7 @@ export default function WheelsPage() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">What We Fix</span>
-            <h2 className="text-4xl sm:text-5xl font-black text-white mt-2 mb-4 uppercase tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-black text-white mt-2 mb-4 uppercase tracking-tight">
               Wheel Services
             </h2>
           </div>
@@ -168,16 +172,16 @@ export default function WheelsPage() {
             </h2>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 min-[460px]:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
             {wheelImages.map((image, index) => (
               <button
                 key={index}
                 onClick={() => openLightbox(index)}
-                className="relative w-[300px] aspect-[16/9] overflow-hidden group cursor-pointer flex-shrink-0"
+                className="relative w-full aspect-[16/10] overflow-hidden group cursor-pointer"
               >
                 <Image
                   src={image.src}
-                  alt="Wheel work"
+                  alt={image.alt}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
@@ -189,47 +193,7 @@ export default function WheelsPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-zinc-950 border-t border-zinc-800 py-12 sm:py-16">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="relative overflow-hidden border border-zinc-800 bg-black min-h-[320px] sm:min-h-[280px]">
-              <Image
-                src="/wheels-footer-banner.png"
-                alt=""
-                fill
-                sizes="(min-width: 1280px) 1152px, calc(100vw - 32px)"
-                className="object-cover object-right opacity-55"
-                unoptimized
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/35" />
-              <div className="relative z-10 grid gap-8 p-6 sm:p-8 md:grid-cols-[240px_1fr] md:items-center">
-                <Image
-                  src="/dynamic-paint-logo-transparent.png"
-                  alt="Dynamic Paint Logo"
-                  width={541}
-                  height={235}
-                  className="w-56 max-w-full object-contain"
-                  unoptimized
-                />
-                <div className="max-w-xl border-l border-lime-400/70 pl-6">
-                  <p className="text-2xl sm:text-3xl font-black uppercase tracking-[0.18em] text-white">
-                    Built on passion.
-                  </p>
-                  <p className="text-xl sm:text-2xl font-black uppercase tracking-[0.18em] text-white">
-                    <span className="text-lime-400">Driven</span> by detail.
-                  </p>
-                  <p className="mt-5 max-w-md text-sm sm:text-base leading-7 text-zinc-300">
-                    At Dynamic Paint, we don&apos;t just change wheels. We transform them. Every detail matters, and every finish reflects our standard.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <p className="text-zinc-600 text-sm text-center mt-6">
-              &copy; {new Date().getFullYear()} Dynamic Paint. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
 
       {/* Lightbox */}
       {lightboxIndex !== null && (
@@ -264,7 +228,7 @@ export default function WheelsPage() {
           <div className="relative w-full h-full max-w-5xl max-h-[80vh] mx-4">
             <Image
               src={wheelImages[lightboxIndex].src}
-              alt="Wheel work"
+              alt={wheelImages[lightboxIndex].alt}
               fill
               className="object-contain"
             />

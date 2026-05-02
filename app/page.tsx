@@ -1,9 +1,14 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
-import { Palette, Wrench, Car, Sun, CircleDot, Truck, CheckCircle, Zap, Users } from "lucide-react"
+import { SiteFooter } from "@/components/site-footer"
+import { Palette, Wrench, Car, Sun, CircleDot, Truck, CheckCircle, Zap, Users, MapPin } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { JsonLd, pageJsonLd, serviceCatalogJsonLd } from "./structured-data"
+import { buildMetadata, seoRoutes } from "./seo"
+
+export const metadata = buildMetadata(seoRoutes.home)
 
 export default function Home() {
   const services = [
@@ -41,13 +46,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black">
+      <JsonLd data={[pageJsonLd(seoRoutes.home), serviceCatalogJsonLd()]} />
       <Navigation />
 
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[720px] sm:min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/high-end-luxury-car-wheel-close-up-dark-automotive.jpg"
-            alt="Dark custom wheel detail"
+            alt="Close-up of custom finished automotive wheel"
             fill
             className="object-cover object-center opacity-35"
             priority
@@ -56,31 +62,37 @@ export default function Home() {
             src="/custom-wheel-colors.jpg"
             alt=""
             fill
-            className="object-cover object-right opacity-15 mix-blend-screen saturate-75"
+            className="object-cover object-right opacity-25 mix-blend-screen saturate-90"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-black/90 to-lime-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-black/80 to-lime-950/15" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/25" />
           
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center pt-20">
-          <div className="inline-flex items-center gap-2 bg-lime-400/10 border border-lime-400/30 px-4 py-2 mb-6 animate-fade-in-up">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center pt-20 sm:pt-24">
+          <div className="inline-flex max-w-full items-center gap-2 bg-lime-400/10 border border-lime-400/30 px-3 sm:px-4 py-2 mb-5 sm:mb-6 animate-fade-in-up">
             <Zap className="w-4 h-4 text-lime-400" />
-            <span className="text-lime-400 text-sm font-bold uppercase tracking-wider">Your Ride. Your Style.</span>
+            <span className="text-lime-400 text-xs sm:text-sm font-bold uppercase tracking-wider">Your Ride. Your Style.</span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 text-balance animate-fade-in-up [animation-delay:100ms] uppercase tracking-tight leading-none">
-            Built <span className="text-lime-400">Different.</span>
+          <h1 className="text-4xl min-[390px]:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-5 sm:mb-6 text-balance animate-fade-in-up [animation-delay:100ms] uppercase tracking-tight leading-none">
+            Trusted Auto <span className="text-lime-400">Reconditioning.</span>
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-zinc-400 mb-8 max-w-3xl mx-auto text-balance animate-fade-in-up [animation-delay:200ms]">
-            Custom wheel colors, repairs, window tinting & more. One-stop shop for automotive reconditioning. Factory fresh or full custom — we got you.
+          <p className="text-base sm:text-xl md:text-2xl text-zinc-400 mb-6 sm:mb-8 max-w-3xl mx-auto text-balance animate-fade-in-up [animation-delay:200ms]">
+            Custom wheel colors, repairs, window tinting & more. One-stop shop for automotive reconditioning. Factory fresh or full custom - we got you.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up [animation-delay:300ms] px-4">
+          <div className="mb-7 sm:mb-8 inline-flex max-w-[22rem] sm:max-w-none flex-wrap items-center justify-center gap-2 border border-zinc-800 bg-black/45 px-3 sm:px-4 py-2 text-xs sm:text-sm font-bold uppercase tracking-wide text-zinc-300 animate-fade-in-up [animation-delay:250ms]">
+            <MapPin className="h-4 w-4 text-lime-400" />
+            <span>New Jersey</span>
+            <span className="text-zinc-600">|</span>
+            <span className="text-zinc-400">Ocean, Atlantic &amp; Monmouth County</span>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in-up [animation-delay:300ms] px-2 sm:px-4">
             <Button
               asChild
               size="lg"
-              className="bg-lime-400 hover:bg-lime-300 text-black font-bold text-lg px-8 shadow-lg shadow-lime-400/30 hover:shadow-lime-400/50 transition-all hover:scale-105 uppercase tracking-wide"
+              className="w-full sm:w-auto bg-lime-400 hover:bg-lime-300 text-black font-bold text-base sm:text-lg px-8 shadow-lg shadow-lime-400/30 hover:shadow-lime-400/50 transition-all hover:scale-105 uppercase tracking-wide"
             >
               <Link href="/quote">Get Your Quote</Link>
             </Button>
@@ -88,14 +100,14 @@ export default function Home() {
               asChild
               size="lg"
               variant="outline"
-              className="border-zinc-700 text-white hover:bg-zinc-900 text-lg px-8 bg-transparent hover:border-lime-400 transition-all uppercase tracking-wide font-bold"
+              className="w-full sm:w-auto border-zinc-700 text-white hover:bg-zinc-900 text-base sm:text-lg px-8 bg-transparent hover:border-lime-400 transition-all uppercase tracking-wide font-bold"
             >
               <Link href="/services">See Services</Link>
             </Button>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-5 sm:bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-zinc-600 rounded-full flex justify-center">
             <div className="w-1.5 h-3 bg-lime-400 rounded-full mt-2 animate-pulse" />
           </div>
@@ -104,13 +116,13 @@ export default function Home() {
 
       <section className="bg-zinc-950 border-y border-zinc-800">
         <div className="container mx-auto px-4 py-12 sm:py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
             <div className="text-center group">
               <div className="flex items-center justify-center gap-3 mb-2">
                 <div className="w-12 h-12 bg-lime-400/10 flex items-center justify-center group-hover:bg-lime-400/20 transition-colors">
                   <CheckCircle className="w-6 h-6 text-lime-400" />
                 </div>
-                <div className="text-4xl sm:text-5xl font-black text-white">Premium</div>
+                <div className="text-3xl sm:text-5xl font-black text-white">Premium</div>
               </div>
               <p className="text-zinc-500 uppercase tracking-wide text-sm font-medium">Show-Quality Finish</p>
             </div>
@@ -119,7 +131,7 @@ export default function Home() {
                 <div className="w-12 h-12 bg-lime-400/10 flex items-center justify-center group-hover:bg-lime-400/20 transition-colors">
                   <Zap className="w-6 h-6 text-lime-400" />
                 </div>
-                <div className="text-4xl sm:text-5xl font-black text-white">Mobile</div>
+                <div className="text-3xl sm:text-5xl font-black text-white">Mobile</div>
               </div>
               <p className="text-zinc-500 uppercase tracking-wide text-sm font-medium">Service Available</p>
             </div>
@@ -128,7 +140,7 @@ export default function Home() {
                 <div className="w-12 h-12 bg-lime-400/10 flex items-center justify-center group-hover:bg-lime-400/20 transition-colors">
                   <Users className="w-6 h-6 text-lime-400" />
                 </div>
-                <div className="text-4xl sm:text-5xl font-black text-white">OEM+</div>
+                <div className="text-3xl sm:text-5xl font-black text-white">OEM+</div>
               </div>
               <p className="text-zinc-500 uppercase tracking-wide text-sm font-medium">Color Matching</p>
             </div>
@@ -142,16 +154,16 @@ export default function Home() {
             <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">
               What We Do
             </span>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mt-2 mb-4 uppercase tracking-tight">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white mt-2 mb-4 uppercase tracking-tight">
               Our Services
             </h2>
-            <p className="text-zinc-500 text-lg max-w-2xl mx-auto">
+            <p className="text-zinc-500 text-base sm:text-lg max-w-2xl mx-auto">
               From custom paint jobs to OEM restoration. Whatever your vibe, we make it happen.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto mb-8">
-            <Link href="/wheels" className="relative aspect-square sm:col-span-2 sm:row-span-2 overflow-hidden group block cursor-pointer">
+            <Link href="/wheels" className="relative aspect-[4/3] sm:aspect-square sm:col-span-2 sm:row-span-2 overflow-hidden group block cursor-pointer">
               <Image
                 src="/wheel-repair-before-after.jpg"
                 alt="Before and after wheel repair"
@@ -167,10 +179,10 @@ export default function Home() {
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-lime-400 transition-all" />
             </Link>
 
-            <Link href="/custom-colors" className="relative aspect-square overflow-hidden group block cursor-pointer">
+            <Link href="/custom-colors" className="relative aspect-[4/3] sm:aspect-square overflow-hidden group block cursor-pointer">
               <Image
                 src="/custom-wheel-colors.jpg"
-                alt="Custom wheel colors"
+                alt="Custom painted wheel color options"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -183,10 +195,10 @@ export default function Home() {
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-lime-400 transition-all" />
             </Link>
 
-            <Link href="/window-tint" className="relative aspect-square overflow-hidden group block cursor-pointer">
+            <Link href="/window-tint" className="relative aspect-[4/3] sm:aspect-square overflow-hidden group block cursor-pointer">
               <Image
                 src="/window-tint-dynamic-paint.png"
-                alt="Window tinting"
+                alt="Window tinting on a finished vehicle"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -199,10 +211,10 @@ export default function Home() {
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-lime-400 transition-all" />
             </Link>
 
-            <div className="relative aspect-square sm:col-span-2 overflow-hidden group">
+            <div className="relative aspect-[4/3] sm:aspect-square sm:col-span-2 overflow-hidden group">
               <Image
                 src="/paintless-dent-repair-suv.png"
-                alt="Paintless dent repair"
+                alt="Paintless dent repair on an SUV"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -215,7 +227,7 @@ export default function Home() {
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-lime-400 transition-all" />
             </div>
 
-            <Link href="/body-repairs" className="relative aspect-square overflow-hidden group block cursor-pointer">
+            <Link href="/body-repairs" className="relative aspect-[4/3] sm:aspect-square overflow-hidden group block cursor-pointer">
               <Image
                 src="/auto-body-paint-repair.jpg"
                 alt="Auto body paint repair"
@@ -343,7 +355,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/custom-wheel-colors.jpg"
-            alt="CTA Background"
+            alt="Custom wheel colors and automotive finish work"
             fill
             className="object-cover"
           />
@@ -366,98 +378,7 @@ export default function Home() {
           </Button>
         </div>
       </section>
-
-      <footer className="bg-zinc-950 border-t border-zinc-800 py-12 sm:py-16">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <div className="sm:col-span-2 lg:col-span-1">
-              <div className="mb-4">
-                <Image
-                  src="/dynamic-paint-logo-transparent.png"
-                  alt="Dynamic Paint Logo"
-                  width={580}
-                  height={371}
-                  className="h-20 w-auto object-contain"
-                  unoptimized
-                />
-              </div>
-              <p className="text-zinc-500 text-sm">
-                Your one-stop shop for automotive reconditioning. Custom style or factory fresh — we make it happen.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold uppercase tracking-wide mb-4">Services</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/services" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Custom Wheel Colors
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Wheel Repairs
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/window-tint" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Window Tinting
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Paintless Dent Repair
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold uppercase tracking-wide mb-4">Navigation</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/gallery" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Gallery
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/quote" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
-                    Get a Quote
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold uppercase tracking-wide mb-4">Contact</h4>
-              <div className="space-y-2 text-zinc-500 text-sm">
-                <p>
-                  <a href="mailto:dynamicpaintnj@gmail.com" className="hover:text-lime-400 transition-colors">
-                    dynamicpaintnj@gmail.com
-                  </a>
-                </p>
-                <p className="text-zinc-600">
-                  Mobile services available
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-zinc-800 mt-8 pt-8 text-center text-xs text-zinc-600">
-            <p>&copy; {new Date().getFullYear()} Dynamic Paint. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

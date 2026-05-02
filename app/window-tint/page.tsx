@@ -2,7 +2,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Navigation } from "@/components/navigation"
+import { SiteFooter } from "@/components/site-footer"
 import { CheckCircle, Droplets, Shield, Sun, ThermometerSun, Wrench } from "lucide-react"
+import { JsonLd, breadcrumbJsonLd, serviceJsonLd } from "../structured-data"
+import { buildMetadata, seoRoutes } from "../seo"
+
+export const metadata = buildMetadata(seoRoutes.windowTint)
 
 export default function WindowTintPage() {
   const benefits = [
@@ -48,9 +53,10 @@ export default function WindowTintPage() {
 
   return (
     <main className="min-h-screen bg-black">
+      <JsonLd data={[serviceJsonLd(seoRoutes.windowTint, "Window tinting"), breadcrumbJsonLd(seoRoutes.windowTint)]} />
       <Navigation />
 
-      <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 overflow-hidden">
+      <section className="relative pt-24 sm:pt-40 pb-14 sm:pb-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/window-tint-dynamic-paint.png"
@@ -66,10 +72,10 @@ export default function WindowTintPage() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl">
             <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">Privacy + Protection</span>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mt-3 mb-6 uppercase tracking-tight leading-none">
+            <h1 className="text-3xl min-[390px]:text-4xl sm:text-5xl md:text-7xl font-black text-white mt-3 mb-5 sm:mb-6 uppercase tracking-tight leading-none">
               Window Tinting
             </h1>
-            <p className="text-zinc-400 text-lg sm:text-xl max-w-2xl mb-8">
+            <p className="text-zinc-400 text-base sm:text-xl max-w-2xl mb-8">
               Clean, professional tint work for a darker look, cooler cabin, better privacy, and a more finished ride.
             </p>
             <Button asChild size="lg" className="bg-lime-400 hover:bg-lime-300 text-black font-bold uppercase tracking-wide">
@@ -79,12 +85,12 @@ export default function WindowTintPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 bg-zinc-950">
+      <section className="py-12 sm:py-24 bg-zinc-950">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-10 items-center max-w-6xl mx-auto">
             <div>
               <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">What You Get</span>
-              <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 mb-6 uppercase tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-black text-white mt-2 mb-5 sm:mb-6 uppercase tracking-tight">
                 Cooler, Cleaner, Sharper
               </h2>
               <p className="text-zinc-400 mb-6">
@@ -109,9 +115,9 @@ export default function WindowTintPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 bg-black">
+      <section className="py-12 sm:py-24 bg-black">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src="/window-tint-tools.png"
@@ -142,7 +148,7 @@ export default function WindowTintPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 bg-zinc-950">
+      <section className="py-12 sm:py-24 bg-zinc-950">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -151,7 +157,7 @@ export default function WindowTintPage() {
                 How We Do It
               </h2>
             </div>
-            <div className="grid md:grid-cols-5 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {processSteps.map((step, index) => (
                 <div key={index} className="bg-black border border-zinc-800 p-5 hover:border-lime-400/50 transition-colors">
                   <div className="text-lime-400 font-black text-3xl mb-4">{String(index + 1).padStart(2, "0")}</div>
@@ -164,9 +170,9 @@ export default function WindowTintPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 bg-black">
+      <section className="py-12 sm:py-24 bg-black">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
             <div>
               <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">Clean Install</span>
               <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 mb-6 uppercase tracking-tight">
@@ -191,24 +197,7 @@ export default function WindowTintPage() {
           </div>
         </div>
       </section>
-
-      <footer className="py-12 bg-zinc-950 border-t border-zinc-800">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <Image
-              src="/dynamic-paint-logo-transparent.png"
-              alt="Dynamic Paint Logo"
-              width={500}
-              height={250}
-              className="h-16 w-auto"
-              unoptimized
-            />
-            <p className="text-zinc-600 text-sm">
-              &copy; {new Date().getFullYear()} Dynamic Paint. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   )
 }

@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Navigation } from "@/components/navigation"
+import { SiteFooter } from "@/components/site-footer"
 import { CheckCircle, Wrench, Paintbrush, Car, SearchCheck } from "lucide-react"
 
 export default function BodyRepairsPage() {
@@ -48,12 +49,12 @@ export default function BodyRepairsPage() {
   ]
 
   const galleryImages = [
-    { src: "/gallery/advanti-wheel.jpg" },
-    { src: "/gallery/audi-matte-gray.jpg" },
-    { src: "/gallery/red-bumper-paint.jpg" },
-    { src: "/body-repair-black-truck.png" },
-    { src: "/body-repair-red-camaro.png" },
-    { src: "/body-repair-red-camaro-before.png" },
+    { src: "/gallery/advanti-wheel.jpg", alt: "Refinished Advanti wheel detail" },
+    { src: "/gallery/audi-matte-gray.jpg", alt: "Matte gray Audi paint and wheel work" },
+    { src: "/gallery/red-bumper-paint.jpg", alt: "Red bumper paint repair" },
+    { src: "/body-repair-black-truck.png", alt: "Black truck after body paint repair" },
+    { src: "/body-repair-red-camaro.png", alt: "Red Camaro after paint repair" },
+    { src: "/body-repair-red-camaro-before.png", alt: "Red Camaro before body repair" },
   ]
 
   return (
@@ -61,14 +62,14 @@ export default function BodyRepairsPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 sm:pt-40 sm:pb-24 bg-zinc-950">
+      <section className="pt-24 sm:pt-40 pb-14 sm:pb-24 bg-zinc-950">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">Professional</span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mt-2 mb-6 uppercase tracking-tight">
+            <h1 className="text-3xl min-[390px]:text-4xl sm:text-5xl md:text-6xl font-black text-white mt-2 mb-5 sm:mb-6 uppercase tracking-tight">
               Auto Body Paint Repair
             </h1>
-            <p className="text-zinc-400 text-lg sm:text-xl max-w-2xl mx-auto mb-8">
+            <p className="text-zinc-400 text-base sm:text-xl max-w-2xl mx-auto mb-8">
               From minor dents to full panel replacement. We bring damaged vehicles back to factory-fresh condition with expert metal work, precision prep, and flawless OEM color matching.
             </p>
             <Button
@@ -83,13 +84,13 @@ export default function BodyRepairsPage() {
       </section>
 
       {/* What We Do */}
-      <section className="py-16 sm:py-24 bg-black">
+      <section className="py-12 sm:py-24 bg-black">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div>
                 <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">Light Body Work</span>
-                <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 mb-6 uppercase tracking-tight">
+                <h2 className="text-2xl sm:text-4xl font-black text-white mt-2 mb-5 sm:mb-6 uppercase tracking-tight">
                   Factory Look, Every Time
                 </h2>
                 <p className="text-zinc-400 mb-6">
@@ -98,7 +99,7 @@ export default function BodyRepairsPage() {
                 <p className="text-zinc-400 mb-8">
                   The key is in the details: proper metal work to reshape damaged panels, thorough prep and prime for a solid foundation, and expert color matching using your vehicle's factory OEM paint code. We blend adjacent panels so the repair is invisible - no one will ever know the damage was there.
                 </p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 min-[420px]:grid-cols-2 gap-3 sm:gap-4">
                   {services.map((service, index) => (
                     <div key={index} className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-lime-400 flex-shrink-0" />
@@ -107,7 +108,7 @@ export default function BodyRepairsPage() {
                   ))}
                 </div>
               </div>
-              <div className="relative aspect-square">
+              <div className="relative aspect-[4/3] md:aspect-square overflow-hidden">
                 <Image
                   src="/auto-body-paint-repair.jpg"
                   alt="Auto body paint repair"
@@ -121,8 +122,50 @@ export default function BodyRepairsPage() {
         </div>
       </section>
 
+      {/* Craftsmanship */}
+      <section className="py-12 sm:py-24 bg-zinc-950">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
+              <div className="relative aspect-[4/5] overflow-hidden order-2 md:order-1">
+                <Image
+                  src="/body-repair-owner-painter.png"
+                  alt="Dynamic Paint auto body painter"
+                  fill
+                  className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+                <div className="absolute inset-0 border border-lime-400/20" />
+              </div>
+
+              <div className="order-1 md:order-2">
+                <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">Built On Experience</span>
+                <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 mb-6 uppercase tracking-tight">
+                  Trusted Work, No Shortcuts
+                </h2>
+                <div className="space-y-5 text-zinc-400 text-lg">
+                  <p>
+                    With over 10 years in the paint and auto body industry, Dynamic Paint is built around craftsmanship,
+                    consistency, and doing the job the right way.
+                  </p>
+                  <p>
+                    I take pride in every repair, every blend, and every finish. From daily commuter cars to high-end
+                    performance vehicles and supercars, I have handled it all with the same level of care, patience,
+                    and attention to detail.
+                  </p>
+                  <p>
+                    Every customer gets honest communication, clean work, and a finished result that meets the standard
+                    this industry should be known for.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process */}
-      <section className="py-16 sm:py-24 bg-zinc-950">
+      <section className="py-12 sm:py-24 bg-zinc-950">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -131,7 +174,7 @@ export default function BodyRepairsPage() {
                 How We Do It
               </h2>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
               {processSteps.map((step, index) => (
                 <div key={index} className="bg-black border border-zinc-800 p-6 hover:border-lime-400/50 transition-colors">
                   <div className="bg-lime-400/10 w-12 h-12 flex items-center justify-center mb-4">
@@ -147,7 +190,7 @@ export default function BodyRepairsPage() {
       </section>
 
       {/* Examples */}
-      <section className="py-16 sm:py-24 bg-black">
+      <section className="py-12 sm:py-24 bg-black">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -156,12 +199,12 @@ export default function BodyRepairsPage() {
                 Our Work
               </h2>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 min-[420px]:grid-cols-2 md:grid-cols-4 gap-4">
               {galleryImages.map((image, index) => (
                 <div key={index} className="relative aspect-square overflow-hidden group">
                   <Image
                     src={image.src}
-                    alt="Body repair work"
+                    alt={image.alt}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
@@ -174,7 +217,7 @@ export default function BodyRepairsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-24 bg-zinc-950">
+      <section className="py-12 sm:py-24 bg-zinc-950">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 uppercase tracking-tight">
@@ -205,25 +248,7 @@ export default function BodyRepairsPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-black border-t border-zinc-900">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="mb-4 md:mb-0">
-              <Image
-                src="/dynamic-paint-logo-transparent.png"
-                alt="Dynamic Paint Logo"
-                width={500}
-                height={250}
-                className="h-16 w-auto"
-                unoptimized
-              />
-            </div>
-            <p className="text-zinc-600 text-sm">
-              &copy; {new Date().getFullYear()} Dynamic Paint. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }
