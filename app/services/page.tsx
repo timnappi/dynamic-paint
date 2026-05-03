@@ -135,7 +135,7 @@ export default function ServicesPage() {
             From custom wheel paint jobs to factory-fresh restoration. Whatever your ride needs, we got you covered.
           </p>
           <div className="mt-6 inline-flex max-w-[22rem] sm:max-w-none flex-wrap items-center justify-center gap-2 border border-zinc-800 bg-black/50 px-3 sm:px-4 py-2 text-xs sm:text-sm font-bold uppercase tracking-wide text-zinc-400">
-            <MapPin className="h-4 w-4 text-lime-400" />
+            <MapPin className="hidden sm:block h-4 w-4 text-lime-400" />
             <span>Serving Ocean County, Atlantic County &amp; Monmouth County, NJ</span>
           </div>
         </div>
@@ -150,12 +150,12 @@ export default function ServicesPage() {
                   <CardContent className="p-0">
                     <div className="grid gap-5 sm:gap-6 p-5 sm:p-8 lg:grid-cols-[1fr_1.05fr_240px] lg:items-stretch">
                       <div>
-                        <div className="bg-lime-400/10 w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mb-4 transition-colors group-hover:bg-lime-400/20">
+                        <div className="hidden sm:flex bg-lime-400/10 w-12 h-12 sm:w-16 sm:h-16 items-center justify-center mb-4 transition-colors group-hover:bg-lime-400/20">
                           <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-lime-400" />
                         </div>
                         <div className="flex items-start justify-between gap-4">
                           <h3 className="text-xl sm:text-2xl font-black text-white mb-3 uppercase tracking-tight">{service.title}</h3>
-                          <ArrowUpRight className="w-6 h-6 text-lime-400 opacity-70 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                          <ArrowUpRight className="hidden sm:block w-6 h-6 text-lime-400 opacity-70 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                         </div>
                         <p className="text-sm sm:text-base text-zinc-500 transition-colors group-hover:text-zinc-400">{service.description}</p>
                       </div>
@@ -165,7 +165,7 @@ export default function ServicesPage() {
                         <ul className="space-y-2 sm:space-y-3">
                           {service.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start gap-3">
-                              <CheckCircle className="w-5 h-5 text-lime-400 flex-shrink-0 mt-0.5" />
+                              <CheckCircle className="hidden sm:block w-5 h-5 text-lime-400 flex-shrink-0 mt-0.5" />
                               <span className="text-sm sm:text-base text-zinc-300">{feature}</span>
                             </li>
                           ))}
