@@ -72,7 +72,7 @@ export default function Home() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center pt-20 sm:pt-24">
           <div className="inline-flex max-w-full items-center gap-2 bg-lime-400/10 border border-lime-400/30 px-3 sm:px-4 py-2 mb-5 sm:mb-6 animate-fade-in-up">
-            <Zap className="w-4 h-4 text-lime-400" />
+            <Zap className="hidden sm:block w-4 h-4 text-lime-400" />
             <span className="text-lime-400 text-xs sm:text-sm font-bold uppercase tracking-wider">Your Ride. Your Style.</span>
           </div>
 
@@ -83,7 +83,7 @@ export default function Home() {
             Custom wheel colors, repairs, window tinting & more. One-stop shop for automotive reconditioning. Factory fresh or full custom - we got you.
           </p>
           <div className="mb-7 sm:mb-8 inline-flex max-w-[22rem] sm:max-w-none flex-wrap items-center justify-center gap-2 border border-zinc-800 bg-black/45 px-3 sm:px-4 py-2 text-xs sm:text-sm font-bold uppercase tracking-wide text-zinc-300 animate-fade-in-up [animation-delay:250ms]">
-            <MapPin className="h-4 w-4 text-lime-400" />
+            <MapPin className="hidden sm:block h-4 w-4 text-lime-400" />
             <span>New Jersey</span>
             <span className="text-zinc-600">|</span>
             <span className="text-zinc-400">Ocean, Atlantic &amp; Monmouth County</span>
@@ -119,7 +119,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
             <div className="text-center group">
               <div className="flex items-center justify-center gap-3 mb-2">
-                <div className="w-12 h-12 bg-lime-400/10 flex items-center justify-center group-hover:bg-lime-400/20 transition-colors">
+                <div className="hidden sm:flex w-12 h-12 bg-lime-400/10 items-center justify-center group-hover:bg-lime-400/20 transition-colors">
                   <CheckCircle className="w-6 h-6 text-lime-400" />
                 </div>
                 <div className="text-3xl sm:text-5xl font-black text-white">Premium</div>
@@ -128,7 +128,7 @@ export default function Home() {
             </div>
             <div className="text-center group">
               <div className="flex items-center justify-center gap-3 mb-2">
-                <div className="w-12 h-12 bg-lime-400/10 flex items-center justify-center group-hover:bg-lime-400/20 transition-colors">
+                <div className="hidden sm:flex w-12 h-12 bg-lime-400/10 items-center justify-center group-hover:bg-lime-400/20 transition-colors">
                   <Zap className="w-6 h-6 text-lime-400" />
                 </div>
                 <div className="text-3xl sm:text-5xl font-black text-white">Mobile</div>
@@ -137,7 +137,7 @@ export default function Home() {
             </div>
             <div className="text-center group">
               <div className="flex items-center justify-center gap-3 mb-2">
-                <div className="w-12 h-12 bg-lime-400/10 flex items-center justify-center group-hover:bg-lime-400/20 transition-colors">
+                <div className="hidden sm:flex w-12 h-12 bg-lime-400/10 items-center justify-center group-hover:bg-lime-400/20 transition-colors">
                   <Users className="w-6 h-6 text-lime-400" />
                 </div>
                 <div className="text-3xl sm:text-5xl font-black text-white">OEM+</div>
@@ -281,15 +281,15 @@ export default function Home() {
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3 text-zinc-300">
-                    <CheckCircle className="w-5 h-5 text-lime-400" />
+                    <CheckCircle className="hidden sm:block w-5 h-5 text-lime-400" />
                     OEM color matching
                   </li>
                   <li className="flex items-center gap-3 text-zinc-300">
-                    <CheckCircle className="w-5 h-5 text-lime-400" />
+                    <CheckCircle className="hidden sm:block w-5 h-5 text-lime-400" />
                     Factory finish restoration
                   </li>
                   <li className="flex items-center gap-3 text-zinc-300">
-                    <CheckCircle className="w-5 h-5 text-lime-400" />
+                    <CheckCircle className="hidden sm:block w-5 h-5 text-lime-400" />
                     Invisible repairs
                   </li>
                 </ul>
@@ -319,15 +319,15 @@ export default function Home() {
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3 text-zinc-300">
-                    <CheckCircle className="w-5 h-5 text-lime-400" />
+                    <CheckCircle className="hidden sm:block w-5 h-5 text-lime-400" />
                     On-site wheel repairs
                   </li>
                   <li className="flex items-center gap-3 text-zinc-300">
-                    <CheckCircle className="w-5 h-5 text-lime-400" />
+                    <CheckCircle className="hidden sm:block w-5 h-5 text-lime-400" />
                     Bumper scratch & scuff removal
                   </li>
                   <li className="flex items-center gap-3 text-zinc-300">
-                    <CheckCircle className="w-5 h-5 text-lime-400" />
+                    <CheckCircle className="hidden sm:block w-5 h-5 text-lime-400" />
                     Flexible scheduling
                   </li>
                 </ul>

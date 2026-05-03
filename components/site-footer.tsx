@@ -90,7 +90,7 @@ export function SiteFooter() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 hover:text-lime-400 transition-colors"
                 >
-                  <Instagram className="h-4 w-4" />
+                  <Instagram className="hidden sm:block h-4 w-4" />
                   @dynamicpaintnj
                 </a>
               </p>
