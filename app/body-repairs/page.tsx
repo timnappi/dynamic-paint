@@ -130,7 +130,7 @@ export default function BodyRepairsPage() {
             <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
               <div className="relative aspect-[4/5] overflow-hidden order-2 md:order-1">
                 <Image
-                  src="/body-repair-owner-painter.png"
+                  src="/body-repair-owner-painter.jpg"
                   alt="Dynamic Paint auto body painter"
                   fill
                   className="object-cover object-center"
