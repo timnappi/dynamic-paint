@@ -42,7 +42,7 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
+                <Link href="/paintless-dent-repair" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
                   Paintless Dent Repair
                 </Link>
               </li>

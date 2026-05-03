@@ -3,7 +3,7 @@
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { Button } from "@/components/ui/button"
-import { CheckCircle } from "lucide-react"
+import { CheckCircle, ChevronLeft, ChevronRight, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
@@ -201,28 +201,25 @@ export default function WheelsPage() {
           <button
             onClick={closeLightbox}
             className="absolute top-6 right-6 text-white hover:text-lime-400 transition-colors z-50"
+            aria-label="Close image preview"
           >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <X className="w-8 h-8" />
           </button>
 
           <button
             onClick={prevImage}
             className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-lime-400 transition-colors z-50 p-2"
+            aria-label="Previous image"
           >
-            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
+            <ChevronLeft className="w-10 h-10" />
           </button>
 
           <button
             onClick={nextImage}
             className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-lime-400 transition-colors z-50 p-2"
+            aria-label="Next image"
           >
-            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+            <ChevronRight className="w-10 h-10" />
           </button>
 
           <div className="relative w-full h-full max-w-5xl max-h-[80vh] mx-4">

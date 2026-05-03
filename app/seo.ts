@@ -131,6 +131,25 @@ export const seoRoutes = {
     ],
     image: "/window-tint-dynamic-paint.png",
   },
+  paintlessDentRepair: {
+    path: "/paintless-dent-repair",
+    title: "Paintless Dent Repair",
+    description:
+      "Paintless dent repair removes minor dents and dings while preserving factory paint, avoiding filler, repainting, and traditional body work.",
+    keywords: [
+      "New Jersey paintless dent repair",
+      "Ocean County PDR",
+      "Atlantic County PDR",
+      "Monmouth County PDR",
+      "paintless dent repair",
+      "door ding repair",
+      "hail damage repair",
+      "factory paint dent repair",
+      "dent repair without paint",
+      "no body filler dent repair",
+    ],
+    image: "/paintless-dent-repair-suv.png",
+  },
   gallery: {
     path: "/gallery",
     title: "Project Gallery",
@@ -236,7 +255,7 @@ export const serviceItems = [
   { name: "Window Tinting", url: "/window-tint", description: seoRoutes.windowTint.description },
   {
     name: "Paintless Dent Repair",
-    url: "/services",
+    url: "/paintless-dent-repair",
     description: "Paintless dent repair for dents and dings without repainting or disturbing the original finish.",
   },
   {

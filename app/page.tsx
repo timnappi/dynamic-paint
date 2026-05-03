@@ -211,7 +211,7 @@ export default function Home() {
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-lime-400 transition-all" />
             </Link>
 
-            <div className="relative aspect-[4/3] sm:aspect-square sm:col-span-2 overflow-hidden group">
+            <Link href="/paintless-dent-repair" className="relative aspect-[4/3] sm:aspect-square sm:col-span-2 overflow-hidden group block cursor-pointer">
               <Image
                 src="/paintless-dent-repair-suv.png"
                 alt="Paintless dent repair on an SUV"
@@ -225,7 +225,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-lime-400 transition-all" />
-            </div>
+            </Link>
 
             <Link href="/body-repairs" className="relative aspect-[4/3] sm:aspect-square overflow-hidden group block cursor-pointer">
               <Image

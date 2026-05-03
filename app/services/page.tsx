@@ -85,7 +85,7 @@ export default function ServicesPage() {
     {
       icon: CircleDot,
       title: "Paintless Dent Repair",
-      href: "/quote?service=paintless-dent-repair",
+      href: "/paintless-dent-repair",
       image: "/paintless-dent-repair-suv.png",
       description: "Remove dents and dings without affecting your factory paint. The smart way to fix hail damage and door dings.",
       features: [
