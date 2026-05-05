@@ -6,7 +6,7 @@ export const siteConfig = {
   email: "dynamicpaintnj@gmail.com",
   description:
     "New Jersey custom wheel colors, wheel repair, auto body paint repair, window tinting, paintless dent repair, and mobile automotive reconditioning for Ocean, Atlantic, and Monmouth County.",
-  ogImage: "/wheel-repair-before-after.jpg",
+  ogImage: "/og-wheel-preview.png",
 }
 
 export type SeoRoute = {
@@ -35,7 +35,7 @@ export const seoRoutes = {
       "paintless dent repair",
       "mobile wheel repair",
     ],
-    image: "/high-end-luxury-car-wheel-close-up-dark-automotive.jpg",
+    image: "/og-wheel-preview.png",
   },
   services: {
     path: "/services",
@@ -53,7 +53,7 @@ export const seoRoutes = {
       "bumper repair",
       "mobile auto repair",
     ],
-    image: "/hero-custom-wheels-street-style.jpg",
+    image: "/og-wheel-preview.png",
   },
   wheels: {
     path: "/wheels",
