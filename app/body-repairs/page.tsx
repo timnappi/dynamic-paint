@@ -123,49 +123,6 @@ export default function BodyRepairsPage() {
         </div>
       </section>
 
-      {/* Craftsmanship */}
-      <section className="py-12 sm:py-24 bg-zinc-950">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
-              <div className="relative aspect-[4/5] overflow-hidden order-2 md:order-1">
-                <Image
-                  src="/body-repair-owner-painter.jpg"
-                  alt="Dynamic Paint auto body painter"
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 767px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-                <div className="absolute inset-0 border border-lime-400/20" />
-              </div>
-
-              <div className="order-1 md:order-2">
-                <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">Built On Experience</span>
-                <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 mb-6 uppercase tracking-tight">
-                  Trusted Work, No Shortcuts
-                </h2>
-                <div className="space-y-5 text-zinc-400 text-lg">
-                  <p>
-                    With over 10 years in the paint and auto body industry, Dynamic Paint is built around craftsmanship,
-                    consistency, and doing the job the right way.
-                  </p>
-                  <p>
-                    I take pride in every repair, every blend, and every finish. From daily commuter cars to high-end
-                    performance vehicles and supercars, I have handled it all with the same level of care, patience,
-                    and attention to detail.
-                  </p>
-                  <p>
-                    Every customer gets honest communication, clean work, and a finished result that meets the standard
-                    this industry should be known for.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Process */}
       <section className="py-12 sm:py-24 bg-zinc-950">
         <div className="container mx-auto px-4 sm:px-6">

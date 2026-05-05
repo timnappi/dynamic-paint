@@ -59,31 +59,44 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-20 bg-black">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <Card className="bg-zinc-950 border-zinc-800">
-              <CardContent className="p-5 sm:p-8 md:p-12">
-                <h2 className="text-2xl sm:text-3xl font-black text-white mb-5 sm:mb-6 uppercase tracking-tight">Our Story</h2>
-                <div className="space-y-4 text-sm sm:text-base text-zinc-400 leading-relaxed">
+      <section className="py-12 sm:py-24 bg-zinc-950">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
+              <div className="relative aspect-[4/5] overflow-hidden order-2 md:order-1">
+                <Image
+                  src="/body-repair-owner-painter.jpg"
+                  alt="Dynamic Paint auto body painter"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 767px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+                <div className="absolute inset-0 border border-lime-400/20" />
+              </div>
+
+              <div className="order-1 md:order-2">
+                <span className="text-lime-400 font-bold text-sm uppercase tracking-widest">Built On Experience</span>
+                <h2 className="text-3xl sm:text-4xl font-black text-white mt-2 mb-6 uppercase tracking-tight">
+                  Trusted Work, No Shortcuts
+                </h2>
+                <div className="space-y-5 text-zinc-400 text-lg">
                   <p>
-                    Dynamic Paint started because we were tired of the same old auto shops with their sky-high prices and cookie-cutter results. We saw a gap — people who wanted quality work on their wheels and body without getting ripped off or waiting weeks.
+                    With over 10 years in the paint and auto body industry, Dynamic Paint is built around craftsmanship,
+                    consistency, and doing the job the right way.
                   </p>
                   <p>
-                    So we built something different. A one-stop shop for automotive reconditioning that speaks to the younger generation who care about how their ride looks. Whether you want custom colors that turn heads or just want your car looking factory-fresh again, we&apos;ve got you.
+                    I take pride in every repair, every blend, and every finish. From daily commuter cars to high-end
+                    performance vehicles and supercars, I have handled it all with the same level of care, patience,
+                    and attention to detail.
                   </p>
                   <p>
-                    We specialize in custom wheel colors, wheel repairs, window tinting, paintless dent repair, and mobile services. That last part is key — we know you&apos;re busy. So we come to you.
-                  </p>
-                  <p>
-                    We have worked in many different body shop environments, from large corporate operations to small family-owned shops. That experience taught us what customers really look for in a completed job: clear communication, clean fit and finish, honest expectations, and work that feels worth it when they pick up the keys.
-                  </p>
-                  <p>
-                    Our approach is simple: quality work, fair prices, and treating every car like it&apos;s our own. We keep the customer&apos;s needs first, which leads to better results and higher satisfaction.
+                    Every customer gets honest communication, clean work, and a finished result that meets the standard
+                    this industry should be known for.
                   </p>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>

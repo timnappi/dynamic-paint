@@ -197,10 +197,10 @@ export default function WheelsPage() {
 
       {/* Lightbox */}
       {lightboxIndex !== null && (
-        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-md sm:bg-black/95 sm:p-0 sm:backdrop-blur-none">
           <button
             onClick={closeLightbox}
-            className="absolute top-6 right-6 text-white hover:text-lime-400 transition-colors z-50"
+            className="absolute right-6 top-6 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-zinc-950/90 text-white shadow-xl shadow-black/40 transition-colors hover:bg-lime-400 hover:text-black sm:bg-transparent sm:shadow-none sm:hover:bg-transparent sm:hover:text-lime-400"
             aria-label="Close image preview"
           >
             <X className="w-8 h-8" />
@@ -208,7 +208,7 @@ export default function WheelsPage() {
 
           <button
             onClick={prevImage}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-lime-400 transition-colors z-50 p-2"
+            className="absolute bottom-6 left-[calc(50%-4rem)] z-50 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-zinc-950/90 p-0 text-white shadow-xl shadow-black/40 transition-colors hover:bg-lime-400 hover:text-black sm:left-4 sm:top-1/2 sm:h-auto sm:w-auto sm:-translate-y-1/2 sm:border-0 sm:bg-transparent sm:p-2 sm:shadow-none sm:hover:bg-transparent sm:hover:text-lime-400"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-10 h-10" />
@@ -216,13 +216,13 @@ export default function WheelsPage() {
 
           <button
             onClick={nextImage}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-lime-400 transition-colors z-50 p-2"
+            className="absolute bottom-6 right-[calc(50%-4rem)] z-50 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-zinc-950/90 p-0 text-white shadow-xl shadow-black/40 transition-colors hover:bg-lime-400 hover:text-black sm:right-4 sm:top-1/2 sm:h-auto sm:w-auto sm:-translate-y-1/2 sm:border-0 sm:bg-transparent sm:p-2 sm:shadow-none sm:hover:bg-transparent sm:hover:text-lime-400"
             aria-label="Next image"
           >
             <ChevronRight className="w-10 h-10" />
           </button>
 
-          <div className="relative w-full h-full max-w-5xl max-h-[80vh] mx-4">
+          <div className="relative h-[68vh] w-full max-w-[26rem] overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl shadow-black/70 sm:mx-4 sm:h-full sm:max-h-[80vh] sm:max-w-5xl sm:rounded-none sm:border-0 sm:bg-transparent sm:shadow-none">
             <Image
               src={wheelImages[lightboxIndex].src}
               alt={wheelImages[lightboxIndex].alt}
@@ -231,8 +231,8 @@ export default function WheelsPage() {
             />
           </div>
 
-          <div className="absolute bottom-8 left-0 right-0 text-center">
-            <p className="text-zinc-500 text-sm">
+          <div className="absolute bottom-20 left-0 right-0 text-center sm:bottom-8">
+            <p className="text-sm font-bold text-zinc-400">
               {lightboxIndex + 1} / {wheelImages.length}
             </p>
           </div>

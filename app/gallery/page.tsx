@@ -160,10 +160,10 @@ export default function GalleryPage() {
 
       {/* Lightbox */}
       {lightboxOpen && (
-        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-md sm:bg-black/95 sm:p-0 sm:backdrop-blur-none">
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 w-12 h-12 bg-zinc-900 hover:bg-lime-400 text-white hover:text-black flex items-center justify-center transition-all z-10"
+            className="absolute right-6 top-6 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-zinc-950/90 text-white shadow-xl shadow-black/40 transition-all hover:bg-lime-400 hover:text-black sm:right-4 sm:top-4 sm:h-12 sm:w-12 sm:rounded-none sm:border-0 sm:bg-zinc-900"
             aria-label="Close lightbox"
           >
             <X className="w-6 h-6" />
@@ -171,7 +171,7 @@ export default function GalleryPage() {
 
           <button
             onClick={prevLightbox}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-zinc-900 hover:bg-lime-400 text-white hover:text-black flex items-center justify-center transition-all z-10"
+            className="absolute bottom-6 left-[calc(50%-4rem)] z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-zinc-950/90 text-white shadow-xl shadow-black/40 transition-all hover:bg-lime-400 hover:text-black sm:left-4 sm:top-1/2 sm:h-12 sm:w-12 sm:-translate-y-1/2 sm:rounded-none sm:border-0 sm:bg-zinc-900"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -179,13 +179,13 @@ export default function GalleryPage() {
 
           <button
             onClick={nextLightbox}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-zinc-900 hover:bg-lime-400 text-white hover:text-black flex items-center justify-center transition-all z-10"
+            className="absolute bottom-6 right-[calc(50%-4rem)] z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-zinc-950/90 text-white shadow-xl shadow-black/40 transition-all hover:bg-lime-400 hover:text-black sm:right-4 sm:top-1/2 sm:h-12 sm:w-12 sm:-translate-y-1/2 sm:rounded-none sm:border-0 sm:bg-zinc-900"
             aria-label="Next image"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
 
-          <div className="relative w-full h-full max-w-6xl max-h-[80vh] mx-4">
+          <div className="relative h-[68vh] w-full max-w-[26rem] overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl shadow-black/70 sm:mx-4 sm:h-full sm:max-h-[80vh] sm:max-w-6xl sm:rounded-none sm:border-0 sm:bg-transparent sm:shadow-none">
             <Image
               src={galleryImages[lightboxIndex].src}
               alt={galleryImages[lightboxIndex].alt}
@@ -196,8 +196,8 @@ export default function GalleryPage() {
             />
           </div>
 
-          <div className="absolute bottom-8 left-0 right-0 text-center">
-            <p className="text-zinc-500 text-sm">
+          <div className="absolute bottom-20 left-0 right-0 text-center sm:bottom-8">
+            <p className="text-sm font-bold text-zinc-400">
               {lightboxIndex + 1} / {galleryImages.length}
             </p>
           </div>
